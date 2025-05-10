@@ -1,11 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=23 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
 [ext_resource type="Texture2D" uid="uid://bh6krdvx2fbul" path="res://assets/upgradeIcons/kafa.png" id="2_dbka4"]
 [ext_resource type="Script" uid="uid://boaq6a6j3b5qq" path="res://resources/CommonResource.cs" id="2_ewlxh"]
 [ext_resource type="Texture2D" uid="uid://rx1xomdx0ypt" path="res://icon.svg" id="3_hmwuc"]
 [ext_resource type="Texture2D" uid="uid://2sjbkn3q2upm" path="res://assets/upgradeIcons/slina.png" id="4_4h4g4"]
+[ext_resource type="Texture2D" uid="uid://m6jwkl522npm" path="res://assets/upgradeIcons/naocare.png" id="4_gcywl"]
 [ext_resource type="Texture2D" uid="uid://dvot7xajoe565" path="res://assets/upgradeIcons/lepeza.png" id="5_hpdqa"]
+[ext_resource type="Texture2D" uid="uid://cucub7u2343go" path="res://assets/upgradeIcons/rukavice.png" id="5_kl71k"]
+[ext_resource type="Texture2D" uid="uid://6byh7jdifoab" path="res://assets/upgradeIcons/pecat.png" id="6_as6cb"]
 
 [sub_resource type="Resource" id="Resource_ewlxh"]
 script = ExtResource("2_ewlxh")
@@ -64,6 +67,7 @@ name = "Shot damage upgrade"
 
 [sub_resource type="Resource" id="Resource_ejsq6"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("4_gcywl")
 shotDamage = 0
 critChance = 10.0
 critDamage = 0.0
@@ -82,6 +86,7 @@ name = "Crit chance upgrade"
 
 [sub_resource type="Resource" id="Resource_dbka4"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("5_kl71k")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.2
@@ -136,6 +141,7 @@ name = "Turret health upgrade"
 
 [sub_resource type="Resource" id="Resource_gcywl"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("6_as6cb")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
