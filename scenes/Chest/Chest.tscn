@@ -97,7 +97,7 @@ turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
 imagePath = ""
-name = ""
+name = "Turret damage upgrade"
 
 [sub_resource type="Resource" id="Resource_hpdqa"]
 script = ExtResource("2_ewlxh")
@@ -113,7 +113,7 @@ turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
 imagePath = ""
-name = ""
+name = "Turret health upgrade"
 
 [sub_resource type="Resource" id="Resource_gcywl"]
 script = ExtResource("2_ewlxh")
@@ -129,7 +129,7 @@ turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
 imagePath = ""
-name = ""
+name = "Turret crit chance"
 
 [sub_resource type="Resource" id="Resource_kl71k"]
 script = ExtResource("2_ewlxh")
@@ -145,7 +145,7 @@ turretFireRate = 1
 cashRegen = 0
 cashOnKill = 0
 imagePath = ""
-name = ""
+name = "Turret fire rate"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11upt"]
 size = Vector2(56, 60)

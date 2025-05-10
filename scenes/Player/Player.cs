@@ -45,6 +45,7 @@ public partial class Player : Node2D
 	float critChance;
 	float critDamage;
 	int cash;
+	float cashRegen;
 	Godot.Collections.Array<Tower> towers;
 	public override void _Ready()
 	{
@@ -142,11 +143,12 @@ public partial class Player : Node2D
 	}
 	public void upgrade(CommonResource commonResource)
 	{
-		timer.WaitTime -= commonResource.fireRate;
+		if(timer.WaitTime > 0.1) timer.WaitTime -= commonResource.fireRate;
 		health += commonResource.health;
 		shotDamage += commonResource.shotDamage;
 		critChance += commonResource.critChance;
 		critDamage += commonResource.critDamage;
+		moneyTimer.WaitTime -= commonResource.cashRegen;
 		foreach(Tower tower in towers)
 		{
 			tower.turretDamage += commonResource.turretDamage;

@@ -12,7 +12,13 @@ public partial class BasicTower : Tower
     {
 		turretDamage = 10;
 		turretHealth = 100;
+		turretFireRate = 10;
         timer.Timeout += onTimeout;
+    }
+    public override void _Process(double delta)
+    {
+        if(timer.WaitTime <= 0.05) return;
+		timer.WaitTime = turretFireRate;
     }
 	public void onTimeout()
 	{
