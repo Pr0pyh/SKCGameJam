@@ -85,6 +85,16 @@ autoplay = "default"
 frame = 6
 frame_progress = 1.0
 
+[node name="Label" type="Label" parent="Area2D"]
+visible = false
+offset_left = -39.0
+offset_top = -24.0
+offset_right = 1.0
+offset_bottom = 25.0
+rotation = -0.541052
+text = "20
+"
+
 [node name="FirerateTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true

@@ -26,6 +26,10 @@ public partial class CommonResource : Resource
 	[Export]
 	public int cashOnKill;
 	[Export]
+	public bool slowOnHit;
+	[Export]
+	public bool pushBackOnHit;
+	[Export]
 	public string imagePath;
 	[Export]
 	public string name;

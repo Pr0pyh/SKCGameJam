@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=16 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
 [ext_resource type="Script" uid="uid://boaq6a6j3b5qq" path="res://resources/CommonResource.cs" id="2_ewlxh"]
@@ -16,6 +16,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Fire Rate upgrade"
 
@@ -32,6 +34,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Health upgrade"
 
@@ -48,6 +52,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Shot damage upgrade"
 
@@ -64,6 +70,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Crit chance upgrade"
 
@@ -80,6 +88,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Crit Damage update"
 
@@ -96,6 +106,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Turret damage upgrade"
 
@@ -112,6 +124,8 @@ turretHealth = 5
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Turret health upgrade"
 
@@ -128,6 +142,8 @@ turretHealth = 0
 turretFireRate = 0
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Turret crit chance"
 
@@ -144,8 +160,46 @@ turretHealth = 0
 turretFireRate = 1
 cashRegen = 0
 cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = false
 imagePath = ""
 name = "Turret fire rate"
+
+[sub_resource type="Resource" id="Resource_as6cb"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+slowOnHit = true
+pushBackOnHit = false
+imagePath = ""
+name = "Slow down on hit"
+
+[sub_resource type="Resource" id="Resource_e4qv3"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+slowOnHit = false
+pushBackOnHit = true
+imagePath = ""
+name = "Push back enemies on hit"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11upt"]
 size = Vector2(56, 60)
@@ -159,7 +213,7 @@ hud = NodePath("CanvasLayer")
 firstButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem")
 secondButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem2")
 thirdButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem3")
-commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k")])
+commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k"), SubResource("Resource_as6cb"), SubResource("Resource_e4qv3")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_11upt")

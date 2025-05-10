@@ -22,6 +22,8 @@ public partial class Player : Node2D
 	[Export]
 	Label moneyLabel;
 	[Export]
+	Label damageLabel;
+	[Export]
 	Camera2D camera;
 	[Export]
 	PackedScene BasicTurretScene;
@@ -46,6 +48,8 @@ public partial class Player : Node2D
 	float critDamage;
 	int cash;
 	float cashRegen;
+	bool slowOnHit;
+	bool pushBackOnHit;
 	Godot.Collections.Array<Tower> towers;
 	public override void _Ready()
 	{
@@ -156,6 +160,8 @@ public partial class Player : Node2D
 			tower.turretHealth += commonResource.turretHealth;
 			tower.turretFireRate -= commonResource.turretFireRate;
 		}
+		slowOnHit = commonResource.slowOnHit;
+		pushBackOnHit = commonResource.pushBackOnHit;
 		GD.Print(timer.WaitTime);
 		GD.Print(health);
 		GD.Print(shotDamage);
@@ -182,7 +188,17 @@ public partial class Player : Node2D
 			chosenDamage = (int)(shotDamage*(1+critDamage));
 		else
 			chosenDamage = shotDamage;
+		if(pushBackOnHit) enemy.pushBack();
+		if(slowOnHit) enemy.slowDown();
+		
 		enemy.damage(shotDamage);
+	}
+	public async void showLabel(int shotDamage)
+	{
+		damageLabel.Text = shotDamage.ToString();
+		damageLabel.Visible = true;
+		await ToSignal(GetTree().CreateTimer(1), "timeout");
+		damageLabel.Visible = false;
 	}
 	public void deleteTower(Tower tower)
 	{

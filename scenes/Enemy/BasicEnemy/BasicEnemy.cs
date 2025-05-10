@@ -41,9 +41,18 @@ public partial class BasicEnemy : Enemy
 		sprite.Play("hurt");
 		animationPlayer.Play("Shake");
 	}
+	public override void pushBack()
+	{
+		Position += new Vector2(70.0f, 0.0f);
+	}
+    public override async void slowDown()
+    {
+        speed /= 4;
+		await ToSignal(GetTree().CreateTimer(3), "timeout");
+		speed *= 4;
+    }
 	private void die()
 	{
-
 		QueueFree();
 	}
 	public void bodyEntered(Node body)
