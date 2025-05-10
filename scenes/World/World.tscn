@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://vvfi1wlr4ph6"]
+[gd_scene load_steps=8 format=3 uid="uid://vvfi1wlr4ph6"]
 
 [ext_resource type="PackedScene" uid="uid://dyx12v57pm53j" path="res://scenes/Player/Player.tscn" id="1_6rd1t"]
 [ext_resource type="Script" uid="uid://c2sh8kavit2xq" path="res://scenes/World/World.cs" id="1_mbmvx"]
 [ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.tscn" id="2_1bnsl"]
 [ext_resource type="Texture2D" uid="uid://pem4r5i34j6q" path="res://assets/background.jpeg" id="2_fngvn"]
-[ext_resource type="PackedScene" uid="uid://vrgt48y3uybr" path="res://scenes/Chest/Chest.tscn" id="4_3fwkt"]
 [ext_resource type="Script" uid="uid://dqh6dfhqcdu2q" path="res://scenes/GroundChecker/Ground/Ground.cs" id="6_hkgio"]
 [ext_resource type="PackedScene" uid="uid://blwjb04iby13b" path="res://scenes/EnemySpawner/EnemySpawner.tscn" id="7_kurpr"]
 
@@ -29,9 +28,6 @@ position = Vector2(1053, 320)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(583, 328)
-
-[node name="Chest" parent="." instance=ExtResource("4_3fwkt")]
-position = Vector2(793, 360)
 
 [node name="Ground" type="Area2D" parent="."]
 script = ExtResource("6_hkgio")

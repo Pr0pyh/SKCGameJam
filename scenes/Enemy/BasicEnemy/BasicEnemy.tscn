@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://735k864gxdj1"]
+[gd_scene load_steps=15 format=3 uid="uid://735k864gxdj1"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_d4vj8"]
 [ext_resource type="Texture2D" uid="uid://bk7eoe3kykxma" path="res://assets/enemies/biznismen/biznismen1.png" id="2_70j4l"]
 [ext_resource type="Texture2D" uid="uid://cfb1t0jw1i27v" path="res://assets/enemies/biznismen/biznismen2.png" id="3_cxd0p"]
 [ext_resource type="Texture2D" uid="uid://bew4svoa6538v" path="res://assets/enemies/biznismen/biznismen3.png" id="4_862af"]
-[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_eir0b"]
+[ext_resource type="Texture2D" uid="uid://5wbrh7ra7g5u" path="res://assets/pare/spritesheet.png" id="5_70j4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -33,13 +33,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vj8"]
 size = Vector2(32.0779, 9.35065)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cxd0p"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
 [sub_resource type="Curve" id="Curve_70j4l"]
 _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 18.6259), 0.0, 0.0, 0, 0, Vector2(1, 57.3282), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_laybh"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.699187, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_cxd0p"]
 length = 0.001
@@ -132,10 +139,11 @@ shape = SubResource("RectangleShape2D_d4vj8")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 physics_interpolation_mode = 0
+material = SubResource("CanvasItemMaterial_cxd0p")
 position = Vector2(0, 0.519481)
 emitting = false
 amount = 15
-texture = ExtResource("5_eir0b")
+texture = ExtResource("5_70j4l")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0
@@ -144,12 +152,13 @@ emission_sphere_radius = 4.47
 direction = Vector2(5, -5)
 spread = 43.76
 gravity = Vector2(0, 900)
-initial_velocity_min = 126.45
+initial_velocity_min = 0.4
 initial_velocity_max = 199.62
 damping_curve = SubResource("Curve_70j4l")
-scale_amount_min = 0.1
-scale_amount_max = 0.12
+scale_amount_min = 0.12
+scale_amount_max = 0.15
 color_ramp = SubResource("Gradient_laybh")
+anim_offset_max = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
