@@ -19,6 +19,7 @@ public partial class BasicTower : Tower
     public override void _Process(double delta)
     {
         if(timer.WaitTime <= 0.05) return;
+		timer.WaitTime = Mathf.Max(timer.WaitTime, 0.1f);
 		timer.WaitTime = turretFireRate;
     }
 	public void onTimeout()

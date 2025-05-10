@@ -50,7 +50,7 @@ animations = [{
 "speed": 40.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "groundChecker")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker")]
 script = ExtResource("1_h00vy")
 shootArea = NodePath("Area2D")
 spriteImpact = NodePath("Area2D/AnimatedSprite2D")
@@ -58,6 +58,9 @@ timer = NodePath("FirerateTimer")
 moneyTimer = NodePath("MoneyTimer")
 moneyLabel = NodePath("CanvasLayer/Control/Label")
 damageLabel = NodePath("Area2D/Label")
+basicButton = NodePath("CanvasLayer/Control/Button")
+shieldButton = NodePath("CanvasLayer/Control/Button2")
+fastButton = NodePath("CanvasLayer/Control/Button3")
 BasicTurretScene = ExtResource("2_tl8lu")
 neededMoneyBasic = 20
 ShieldTurretScene = ExtResource("3_qt7jd")

@@ -26,6 +26,12 @@ public partial class Player : Node2D
 	[Export]
 	Camera2D camera;
 	[Export]
+	Button basicButton;
+	[Export]
+	Button shieldButton;
+	[Export]
+	Button fastButton;
+	[Export]
 	PackedScene BasicTurretScene;
 	[Export]
 	int neededMoneyBasic;
@@ -64,6 +70,9 @@ public partial class Player : Node2D
 		canShoot = true;
 		shotDamage = 5;
 		towers = new Godot.Collections.Array<Tower>();
+		basicButton.Text = "Basic turret:\n" + "price: 20";
+		shieldButton.Text = "Shield turret:\n" + "price: 10";
+		fastButton.Text = "Fast turret:\n" + "price: 30";
 	}
 	public override void _Process(double delta)
 	{
@@ -164,8 +173,8 @@ public partial class Player : Node2D
 			tower.turretHealth += commonResource.turretHealth;
 			tower.turretFireRate -= commonResource.turretFireRate;
 		}
-		slowOnHit = commonResource.slowOnHit;
-		pushBackOnHit = commonResource.pushBackOnHit;
+		if(slowOnHit == false) slowOnHit = commonResource.slowOnHit;
+		if(pushBackOnHit == false) pushBackOnHit = commonResource.pushBackOnHit;
 		GD.Print(timer.WaitTime);
 		GD.Print(health);
 		GD.Print(shotDamage);

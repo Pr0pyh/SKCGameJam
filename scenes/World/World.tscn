@@ -24,8 +24,7 @@ texture = ExtResource("2_fngvn")
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_6rd1t")]
 position = Vector2(263, 185)
 camera = NodePath("../Camera2D")
-FastTurretScene = null
-neededMoneyFast = 0
+neededMoneyFast = 30
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(583, 328)
