@@ -15,9 +15,14 @@ public partial class BasicEnemy : Enemy
 	public float damageRate;
 	public int health = 100;
 	Vector2 moveDir;
+	[Export]
+	public AnimatedSprite2D sprite;
+	[Export]
+	public AnimationPlayer animationPlayer;
 	public override void _Ready()
 	{
 		area.BodyEntered += bodyEntered;
+		animationPlayer.AnimationFinished += changeToWalk;
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -31,6 +36,8 @@ public partial class BasicEnemy : Enemy
 		health -= amount;
 		if (health <= 0)
 			die();
+		sprite.Play("hurt");
+		animationPlayer.Play("Shake");
 	}
 	private void die()
 	{
@@ -51,5 +58,10 @@ public partial class BasicEnemy : Enemy
 		area.SetDeferred("monitoring", false);
 		await ToSignal(GetTree().CreateTimer(damageRate), "timeout");
 		area.SetDeferred("monitoring", true);
+	}
+	public void changeToWalk(StringName animName)
+	{
+		if (animName == "Shake")
+			sprite.Play("walk");
 	}
 }
