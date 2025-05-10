@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyx12v57pm53j"]
+[gd_scene load_steps=17 format=3 uid="uid://dyx12v57pm53j"]
 
 [ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
 [ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://deiyrdglhp4j5" path="res://assets/impactframes/tile018.png" id="7_cd157"]
 [ext_resource type="Texture2D" uid="uid://bv2l5cnfqut0l" path="res://assets/impactframes/tile025.png" id="8_8djf2"]
 [ext_resource type="Texture2D" uid="uid://dx8k20bwfblbk" path="res://assets/impactframes/tile045.png" id="9_mmokv"]
+[ext_resource type="AudioStream" uid="uid://17oq16enc88w" path="res://assets/audio/91572__steveygos93__layeredgunshot.wav" id="13_cd157"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5gi"]
 
@@ -49,7 +50,7 @@ animations = [{
 "speed": 40.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker", "audio")]
 script = ExtResource("1_h00vy")
 shootArea = NodePath("Area2D")
 spriteImpact = NodePath("Area2D/AnimatedSprite2D")
@@ -65,6 +66,7 @@ neededMoneyBasic = 20
 ShieldTurretScene = ExtResource("3_qt7jd")
 neededMoneyShield = 10
 groundChecker = NodePath("GroundChecker")
+audio = NodePath("AudioStreamPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -79,6 +81,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_uj5gi")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+visible = false
 position = Vector2(4.76837e-07, 9.53674e-07)
 scale = Vector2(15.5, 16.5)
 mesh = SubResource("BoxMesh_h00vy")
@@ -150,6 +153,9 @@ offset_top = 50.0
 offset_right = 120.0
 offset_bottom = 73.0
 text = "Money:"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_cd157")
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_button_2_pressed"]
