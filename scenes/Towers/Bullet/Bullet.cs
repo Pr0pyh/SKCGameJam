@@ -7,7 +7,7 @@ public partial class Bullet : Area2D
 	public float speed;
     public override void _Ready()
     {
-		speed = 25.0f;
+		speed = 50.0f;
         BodyEntered += bodyEntered;
     }
     public override void _PhysicsProcess(double delta)

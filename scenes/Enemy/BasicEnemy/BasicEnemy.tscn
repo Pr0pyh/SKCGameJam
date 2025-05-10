@@ -16,7 +16,9 @@ size = Vector2(47, 20)
 
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area")]
 script = ExtResource("1_d4vj8")
+speed = 2
 area = NodePath("DamageArea")
+damageRate = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_16bvb")

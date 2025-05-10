@@ -147,6 +147,13 @@ public partial class Player : Node2D
 		shotDamage += commonResource.shotDamage;
 		critChance += commonResource.critChance;
 		critDamage += commonResource.critDamage;
+		foreach(Tower tower in towers)
+		{
+			tower.turretDamage += commonResource.turretDamage;
+			tower.turretCritChance += commonResource.turretCritChance;
+			tower.turretHealth += commonResource.turretHealth;
+			tower.turretFireRate -= commonResource.turretFireRate;
+		}
 		GD.Print(timer.WaitTime);
 		GD.Print(health);
 		GD.Print(shotDamage);

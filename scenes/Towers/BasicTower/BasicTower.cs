@@ -8,11 +8,10 @@ public partial class BasicTower : Tower
 	[Export]
 	public Timer timer;
 	public int towerDamage;
-	public int health;
     public override void _Ready()
     {
-		towerDamage = 10;
-		health = 100;
+		turretDamage = 10;
+		turretHealth = 100;
         timer.Timeout += onTimeout;
     }
 	public void onTimeout()
@@ -20,13 +19,13 @@ public partial class BasicTower : Tower
 		Bullet bullet = bulletScene.Instantiate<Bullet>();
 		GetParent().AddChild(bullet);
 		bullet.GlobalPosition = new Vector2(GlobalPosition.X + 10.0f, GlobalPosition.Y);
-		bullet.turretDamage = towerDamage;
+		bullet.turretDamage = turretDamage;
 		timer.Start();
 	}
     public override void damage(int amount)
     {
-		health -= amount;
-		if(health <= 0)
+		turretHealth -= amount;
+		if(turretHealth <= 0)
 		{
         	EmitSignal(SignalName.Destroyed, this);
 			QueueFree();

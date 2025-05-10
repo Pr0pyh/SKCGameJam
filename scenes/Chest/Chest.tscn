@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=14 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
 [ext_resource type="Script" uid="uid://boaq6a6j3b5qq" path="res://resources/CommonResource.cs" id="2_ewlxh"]
@@ -83,6 +83,70 @@ cashOnKill = 0
 imagePath = ""
 name = "Crit Damage update"
 
+[sub_resource type="Resource" id="Resource_4h4g4"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 5
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+name = ""
+
+[sub_resource type="Resource" id="Resource_hpdqa"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 5
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+name = ""
+
+[sub_resource type="Resource" id="Resource_gcywl"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 10
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+name = ""
+
+[sub_resource type="Resource" id="Resource_kl71k"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0.0
+critDamage = 0.0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 1
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+name = ""
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11upt"]
 size = Vector2(56, 60)
 
@@ -94,7 +158,7 @@ hud = NodePath("CanvasLayer")
 firstButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem")
 secondButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem2")
 thirdButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem3")
-commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4")])
+commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_11upt")
