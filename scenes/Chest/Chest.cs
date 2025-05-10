@@ -4,6 +4,8 @@ using System;
 public partial class Chest : StaticBody2D
 {
 	[Export]
+	public AudioStreamPlayer audio;
+	[Export]
 	public CanvasLayer hud;
 	[Export]
 	public Button firstButton;
@@ -26,6 +28,7 @@ public partial class Chest : StaticBody2D
 	public static int numberOfChests = 0;
 	public override void _Ready()
 	{
+		audio.Play();
 		int number = GD.RandRange(0, commonResources.Count - 1);
 		chosenCommonResource = commonResources[number];
 		firstButton.Text = chosenCommonResource.name;

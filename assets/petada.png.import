@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://itlxau14ijao"
+=======
+uid="uid://byinpotupqva2"
+>>>>>>> 570c283ef05cb6f6be069ad8bb9f5657dd859358
 path="res://.godot/imported/petada.png-b9b1c226d1901b05720af4b2112fc875.ctex"
 metadata={
 "vram_texture": false

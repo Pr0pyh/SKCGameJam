@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://735k864gxdj1"]
 
-[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_d4vj8"]
-[ext_resource type="Texture2D" uid="uid://bk7eoe3kykxma" path="res://assets/enemies/biznismen/biznismen1.png" id="2_70j4l"]
-[ext_resource type="Texture2D" uid="uid://cfb1t0jw1i27v" path="res://assets/enemies/biznismen/biznismen2.png" id="3_cxd0p"]
-[ext_resource type="Texture2D" uid="uid://bew4svoa6538v" path="res://assets/enemies/biznismen/biznismen3.png" id="4_862af"]
-[ext_resource type="Texture2D" uid="uid://5wbrh7ra7g5u" path="res://assets/pare/spritesheet.png" id="5_70j4l"]
+[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_1nt4t"]
+[ext_resource type="Texture2D" uid="uid://bew4svoa6538v" path="res://assets/enemies/biznismen/biznismen3.png" id="2_6vkip"]
+[ext_resource type="Texture2D" uid="uid://bk7eoe3kykxma" path="res://assets/enemies/biznismen/biznismen1.png" id="3_u1ybu"]
+[ext_resource type="Texture2D" uid="uid://cfb1t0jw1i27v" path="res://assets/enemies/biznismen/biznismen2.png" id="4_s0i5a"]
+[ext_resource type="Texture2D" uid="uid://5wbrh7ra7g5u" path="res://assets/pare/spritesheet.png" id="5_f2i3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -12,7 +12,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_862af")
+"texture": ExtResource("2_6vkip")
 }],
 "loop": false,
 "name": &"hurt",
@@ -20,10 +20,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_70j4l")
+"texture": ExtResource("3_u1ybu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cxd0p")
+"texture": ExtResource("4_s0i5a")
 }],
 "loop": true,
 "name": &"walk",
@@ -112,7 +112,7 @@ _data = {
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
-script = ExtResource("1_d4vj8")
+script = ExtResource("1_1nt4t")
 speed = 10
 area = NodePath("DamageArea")
 damageRate = 1.0
@@ -143,7 +143,7 @@ material = SubResource("CanvasItemMaterial_cxd0p")
 position = Vector2(0, 0.519481)
 emitting = false
 amount = 15
-texture = ExtResource("5_70j4l")
+texture = ExtResource("5_f2i3u")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

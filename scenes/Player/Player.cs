@@ -141,6 +141,7 @@ public partial class Player : Node2D
 		spriteImpact.Play();
 		timer.Start();
 		audio.Play();
+		audio.PitchScale = (float)GD.RandRange(0.8, 1.2);
 	}
 	public void bodyEntered(Node body)
 	{
