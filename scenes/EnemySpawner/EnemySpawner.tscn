@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blwjb04iby13b"]
+[gd_scene load_steps=7 format=3 uid="uid://blwjb04iby13b"]
 
 [ext_resource type="Script" uid="uid://bj8fqnesdtixf" path="res://scenes/EnemySpawner/EnemySpawner.cs" id="1_hs4cw"]
 [ext_resource type="Resource" uid="uid://btiqlp45kk5ak" path="res://resources/spawnTemplates/wave0.tres" id="2_hs4cw"]
 [ext_resource type="Resource" uid="uid://craf1gfl1spl8" path="res://resources/spawnTemplates/wave1.tres" id="3_sreu6"]
 [ext_resource type="Resource" uid="uid://4mvsrxfix0fd" path="res://resources/spawnTemplates/wave2.tres" id="4_ckqp1"]
 [ext_resource type="Texture2D" uid="uid://rx1xomdx0ypt" path="res://icon.svg" id="4_hhao0"]
+[ext_resource type="PackedScene" uid="uid://vrgt48y3uybr" path="res://scenes/Chest/Chest.tscn" id="5_ckqp1"]
 
 [node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnPositions", "waveTimer", "enemySpawnTimer")]
 script = ExtResource("1_hs4cw")
@@ -12,6 +13,7 @@ spawnTemplates = Array[Resource]([ExtResource("2_hs4cw"), ExtResource("3_sreu6")
 spawnPositions = [NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4"), NodePath("Node2D5")]
 waveTimer = NodePath("Timer")
 enemySpawnTimer = NodePath("Timer/Timer")
+chestScene = ExtResource("5_ckqp1")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -22,33 +24,33 @@ autostart = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-scale = Vector2(0.797, 0.797)
+scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(0, 90)
+position = Vector2(0, 92)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
-scale = Vector2(0.797, 0.797)
+scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
 [node name="Node2D3" type="Node2D" parent="."]
-position = Vector2(0, 180)
+position = Vector2(0, 184)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D3"]
-scale = Vector2(0.797, 0.797)
+scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
 [node name="Node2D4" type="Node2D" parent="."]
-position = Vector2(0, 270)
+position = Vector2(0, 276)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D4"]
-scale = Vector2(0.797, 0.797)
+scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
 [node name="Node2D5" type="Node2D" parent="."]
-position = Vector2(-1, 360)
+position = Vector2(-1, 368)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D5"]
-scale = Vector2(0.797, 0.797)
+scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")

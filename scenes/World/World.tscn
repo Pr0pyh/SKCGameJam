@@ -41,4 +41,4 @@ position = Vector2(656.5, 416.5)
 shape = SubResource("RectangleShape2D_hkgio")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("7_kurpr")]
-position = Vector2(1008, 234)
+position = Vector2(1008, 232)
