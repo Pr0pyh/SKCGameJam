@@ -25,6 +25,7 @@ public partial class BasicTower : Tower
 	}
     public override void damage(int amount)
     {
+		health -= amount;
 		if(health <= 0)
 		{
         	EmitSignal(SignalName.Destroyed, this);

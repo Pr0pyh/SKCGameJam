@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://w8flxvi6uog2" path="res://scenes/Towers/Bullet/Bullet.tscn" id="2_at46i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysngq"]
-size = Vector2(42, 42)
+size = Vector2(80, 80)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ysngq"]
 

@@ -32,6 +32,8 @@ public partial class Player : Node2D
 	[Export]
 	int neededMoneyShield;
 	PackedScene chosenTurretScene;
+	[Export]
+	GroundChecker groundChecker;
 	int neededMoney;
 	bool canShoot;
 	float amount;
@@ -87,11 +89,12 @@ public partial class Player : Node2D
 	}
 	private void spawnState()
 	{
-		if(Input.IsActionJustPressed("spawn") && (cash>=neededMoney))
+		groundChecker.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X/102)*102, Mathf.Round(GetGlobalMousePosition().Y/102)*102);
+		if(Input.IsActionJustPressed("spawn") && (cash>=neededMoney) && (groundChecker.canPlace) && (groundChecker.onGround))
 		{
 			Tower tower = (Tower)chosenTurretScene.Instantiate();
 			AddChild(tower);
-			tower.GlobalPosition = GetGlobalMousePosition();
+			tower.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X/102)*102, Mathf.Round(GetGlobalMousePosition().Y/102)*102);
 			tower.Destroyed += deleteTower;
 			towers.Add(tower);
 			GD.Print(towers);

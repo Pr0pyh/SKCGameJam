@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://vvfi1wlr4ph6"]
+[gd_scene load_steps=8 format=3 uid="uid://vvfi1wlr4ph6"]
 
 [ext_resource type="PackedScene" uid="uid://dyx12v57pm53j" path="res://scenes/Player/Player.tscn" id="1_6rd1t"]
 [ext_resource type="Script" uid="uid://c2sh8kavit2xq" path="res://scenes/World/World.cs" id="1_mbmvx"]
 [ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.tscn" id="2_1bnsl"]
 [ext_resource type="Texture2D" uid="uid://pem4r5i34j6q" path="res://assets/background.jpeg" id="2_fngvn"]
 [ext_resource type="PackedScene" uid="uid://vrgt48y3uybr" path="res://scenes/Chest/Chest.tscn" id="4_3fwkt"]
+[ext_resource type="Script" uid="uid://dqh6dfhqcdu2q" path="res://scenes/GroundChecker/Ground/Ground.cs" id="6_hkgio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgio"]
+size = Vector2(695, 395)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_mbmvx")
@@ -15,6 +19,7 @@ scale = Vector2(0.622396, 0.625926)
 texture = ExtResource("2_fngvn")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_6rd1t")]
+position = Vector2(263, 185)
 camera = NodePath("../Camera2D")
 
 [node name="BasicEnemy" parent="." instance=ExtResource("2_1bnsl")]
@@ -25,4 +30,11 @@ speed = 10
 position = Vector2(583, 328)
 
 [node name="Chest" parent="." instance=ExtResource("4_3fwkt")]
-position = Vector2(693, 253)
+position = Vector2(782, 260)
+
+[node name="Ground" type="Area2D" parent="."]
+script = ExtResource("6_hkgio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(656.5, 416.5)
+shape = SubResource("RectangleShape2D_hkgio")

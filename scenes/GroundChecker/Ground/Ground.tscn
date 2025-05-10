@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://1a4h1dc5416y"]
+
+[ext_resource type="Script" uid="uid://dqh6dfhqcdu2q" path="res://scenes/GroundChecker/Ground/Ground.cs" id="1_l5d65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek0xg"]
+
+[node name="Ground" type="Area2D"]
+script = ExtResource("1_l5d65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ek0xg")

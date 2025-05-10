@@ -52,4 +52,22 @@ public partial class Chest : StaticBody2D
 			hud.Visible = false;
 		}
 	}
+	public void _on_second_item_pressed()
+	{
+		if(player != null) 
+		{
+			player.transitionToNormal();
+			player.upgrade(chosenCommonResource2);
+			hud.Visible = false;
+		}
+	}
+	public void _on_third_item_pressed()
+	{
+		if(player != null) 
+		{
+			player.transitionToNormal();
+			player.upgrade(chosenCommonResource3);
+			hud.Visible = false;
+		}
+	}
 }

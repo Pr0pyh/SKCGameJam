@@ -8,4 +8,13 @@ public partial class ShieldTower : Tower
     {
         health = 100;
     }
+    public override void damage(int amount)
+    {
+        health -= amount;
+		if(health <= 0)
+		{
+        	EmitSignal(SignalName.Destroyed, this);
+			QueueFree();
+		}
+    }
 }

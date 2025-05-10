@@ -140,5 +140,5 @@ offset_bottom = 351.0
 text = "upgrade firerate"
 
 [connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem" to="." method="_on_first_item_pressed"]
-[connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem2" to="." method="_on_first_item_pressed"]
-[connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem3" to="." method="_on_first_item_pressed"]
+[connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem2" to="." method="_on_second_item_pressed"]
+[connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem3" to="." method="_on_third_item_pressed"]

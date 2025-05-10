@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bxuufqorsaptb" path="res://scenes/Towers/ShieldTower/ShieldTower.cs" id="1_j0qs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1su5"]
-size = Vector2(72, 76)
+size = Vector2(80, 80)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j0qs6"]
 
