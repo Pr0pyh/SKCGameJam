@@ -9,10 +9,12 @@ public partial class BasicEnemy : Enemy
 {
 	[Export]
 	public int speed;
+
 	[Export]
 	public Area2D area;
 	[Export]
 	public float damageRate;
+	[Export]
 	public int health = 100;
 	Vector2 moveDir;
 	[Export]
