@@ -68,11 +68,15 @@ public partial class EnemySpawner : Node2D
         if (spawnTemplates.Count - 1 < currentWave) currentWave = 0;
         SetWaveTimer(spawnTemplates[currentWave]);
         SetEnemySpawnTimer();
-        Chest chest = chestScene.Instantiate<Chest>();
-        AddChild(chest);
-        chest.GlobalPosition = new Vector2(GetViewportRect().Size.X / 2, GetViewportRect().Size.Y / 2);
+        if (Chest.numberOfChests == 0)
+        {
+            Chest chest = chestScene.Instantiate<Chest>();
+            AddChild(chest);
+            chest.GlobalPosition = new Vector2(GetViewportRect().Size.X / 2, GetViewportRect().Size.Y / 2);
 
-        GD.Print(chest.Position);
+            GD.Print(chest.Position);
+        }
+        Chest.numberOfChests++;
         //mze i neki tekst da je poceo novi wave da se stavi na ekran
     }
 

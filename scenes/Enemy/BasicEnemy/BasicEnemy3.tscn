@@ -1,0 +1,158 @@
+[gd_scene load_steps=14 format=3 uid="uid://ci1giyajllmvw"]
+
+[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_8aa11"]
+[ext_resource type="Texture2D" uid="uid://b1yxyv2onoyoo" path="res://assets/enemies/protesrZena/aktivista3.3.png" id="2_8aa11"]
+[ext_resource type="Texture2D" uid="uid://cob42s0fifmqv" path="res://assets/enemies/protesrZena/aktivista3.1.png" id="3_adhw0"]
+[ext_resource type="Texture2D" uid="uid://tcb045q6bnja" path="res://assets/enemies/protesrZena/aktivista3.2.png" id="4_l6p58"]
+[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_rlx07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nlsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8aa11")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_adhw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l6p58")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vj8"]
+size = Vector2(32.0779, 9.35065)
+
+[sub_resource type="Curve" id="Curve_70j4l"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 18.6259), 0.0, 0.0, 0, 0, Vector2(1, 57.3282), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_laybh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_cxd0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.715, -0.915)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6juel"]
+resource_name = "Shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.715, -0.915), Vector2(-0.848306, -0.95976), Vector2(7.223, -3.117), Vector2(-4.76837e-07, 8.05195), Vector2(5.19481, -5.97403), Vector2(-5.19481, 2.5974), Vector2(4.41558, -0.779221), Vector2(-3.8961, -1.03896), Vector2(2.33766, 1.55844), Vector2(-0.77922, -2.33766), Vector2(0, 1.81818), Vector2(1.03896, -1.2987), Vector2(-0.519481, 1.03896), Vector2(-0.519481, -0.519481), Vector2(0.519481, 0.25974), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dcmg"]
+_data = {
+&"RESET": SubResource("Animation_cxd0p"),
+&"Shake": SubResource("Animation_6juel")
+}
+
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
+scale = Vector2(3.85, 3.85)
+collision_layer = 2
+script = ExtResource("1_8aa11")
+speed = 50
+area = NodePath("DamageArea")
+damageRate = 1.0
+health = 40
+sprite = NodePath("AnimatedSprite2D")
+animationPlayer = NodePath("AnimationPlayer")
+metadata/_edit_vertical_guides_ = [-259.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_16bvb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.715, -0.915)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_6nlsp")
+animation = &"hurt"
+autoplay = "walk"
+offset = Vector2(-8.658, -173.16)
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-6.03896, 0)
+shape = SubResource("RectangleShape2D_d4vj8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+physics_interpolation_mode = 0
+position = Vector2(0, 0.519481)
+emitting = false
+amount = 15
+texture = ExtResource("5_rlx07")
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.47
+direction = Vector2(5, -5)
+spread = 43.76
+gravity = Vector2(0, 900)
+initial_velocity_min = 126.45
+initial_velocity_max = 199.62
+damping_curve = SubResource("Curve_70j4l")
+scale_amount_min = 0.1
+scale_amount_max = 0.12
+color_ramp = SubResource("Gradient_laybh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5dcmg")
+}

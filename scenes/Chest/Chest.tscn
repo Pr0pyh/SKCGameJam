@@ -1,10 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=20 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
+[ext_resource type="Texture2D" uid="uid://bh6krdvx2fbul" path="res://assets/upgradeIcons/kafa.png" id="2_dbka4"]
 [ext_resource type="Script" uid="uid://boaq6a6j3b5qq" path="res://resources/CommonResource.cs" id="2_ewlxh"]
+[ext_resource type="Texture2D" uid="uid://rx1xomdx0ypt" path="res://icon.svg" id="3_hmwuc"]
+[ext_resource type="Texture2D" uid="uid://2sjbkn3q2upm" path="res://assets/upgradeIcons/slina.png" id="4_4h4g4"]
+[ext_resource type="Texture2D" uid="uid://dvot7xajoe565" path="res://assets/upgradeIcons/lepeza.png" id="5_hpdqa"]
 
 [sub_resource type="Resource" id="Resource_ewlxh"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("2_dbka4")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
@@ -167,6 +172,7 @@ name = "Turret fire rate"
 
 [sub_resource type="Resource" id="Resource_as6cb"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("4_4h4g4")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
@@ -185,6 +191,7 @@ name = "Slow down on hit"
 
 [sub_resource type="Resource" id="Resource_e4qv3"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("5_hpdqa")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
@@ -206,13 +213,16 @@ size = Vector2(56, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_11upt"]
 
-[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("hud", "firstButton", "secondButton", "thirdButton")]
+[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("hud", "firstButton", "secondButton", "thirdButton", "sprite1", "sprite2", "sprite3")]
 collision_layer = 4
 script = ExtResource("1_ynxvs")
 hud = NodePath("CanvasLayer")
 firstButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem")
 secondButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem2")
 thirdButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem3")
+sprite1 = NodePath("CanvasLayer/UpgradeMenu/FirstItem/Sprite2D")
+sprite2 = NodePath("CanvasLayer/UpgradeMenu/FirstItem2/Sprite2D")
+sprite3 = NodePath("CanvasLayer/UpgradeMenu/FirstItem3/Sprite2D")
 commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k"), SubResource("Resource_as6cb"), SubResource("Resource_e4qv3")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -236,27 +246,42 @@ grow_vertical = 2
 
 [node name="FirstItem" type="Button" parent="CanvasLayer/UpgradeMenu"]
 layout_mode = 0
-offset_left = 333.0
-offset_top = 314.0
-offset_right = 468.0
-offset_bottom = 345.0
+offset_left = 277.0
+offset_top = 277.0
+offset_right = 412.0
+offset_bottom = 308.0
 text = "upgrade firerate"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UpgradeMenu/FirstItem"]
+position = Vector2(69, -64)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_hmwuc")
 
 [node name="FirstItem2" type="Button" parent="CanvasLayer/UpgradeMenu"]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 316.0
-offset_right = 641.0
-offset_bottom = 347.0
+offset_left = 510.0
+offset_top = 327.0
+offset_right = 645.0
+offset_bottom = 358.0
 text = "upgrade firerate"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UpgradeMenu/FirstItem2"]
+position = Vector2(69, -64)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_hmwuc")
 
 [node name="FirstItem3" type="Button" parent="CanvasLayer/UpgradeMenu"]
 layout_mode = 0
-offset_left = 672.0
-offset_top = 320.0
-offset_right = 807.0
-offset_bottom = 351.0
+offset_left = 748.0
+offset_top = 386.0
+offset_right = 883.0
+offset_bottom = 417.0
 text = "upgrade firerate"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UpgradeMenu/FirstItem3"]
+position = Vector2(69, -64)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_hmwuc")
 
 [connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem" to="." method="_on_first_item_pressed"]
 [connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem2" to="." method="_on_second_item_pressed"]

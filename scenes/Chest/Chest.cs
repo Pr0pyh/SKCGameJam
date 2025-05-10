@@ -12,11 +12,18 @@ public partial class Chest : StaticBody2D
 	[Export]
 	public Button thirdButton;
 	[Export]
+	public Sprite2D sprite1;
+	[Export]
+	public Sprite2D sprite2;
+	[Export]
+	public Sprite2D sprite3;
+	[Export]
 	public Godot.Collections.Array<CommonResource> commonResources;
 	public Player player;
 	CommonResource chosenCommonResource;
 	CommonResource chosenCommonResource2;
 	CommonResource chosenCommonResource3;
+	public static int numberOfChests = 0;
 	public override void _Ready()
 	{
 		int number = GD.RandRange(0, commonResources.Count - 1);
@@ -28,10 +35,16 @@ public partial class Chest : StaticBody2D
 		number = GD.RandRange(0, commonResources.Count - 1);
 		chosenCommonResource3 = commonResources[number];
 		thirdButton.Text = chosenCommonResource3.name;
+
+		sprite1.Texture = chosenCommonResource.image;
+		sprite2.Texture = chosenCommonResource2.image;
+		sprite3.Texture = chosenCommonResource3.image;
+
 		GD.Print(number);
 	}
 	public void randomChoose()
 	{
+
 		int number = GD.RandRange(0, commonResources.Count - 1);
 		chosenCommonResource = commonResources[number];
 		firstButton.Text = chosenCommonResource.name;
@@ -41,6 +54,11 @@ public partial class Chest : StaticBody2D
 		number = GD.RandRange(0, commonResources.Count - 1);
 		chosenCommonResource3 = commonResources[number];
 		thirdButton.Text = chosenCommonResource3.name;
+
+		sprite1.Texture = chosenCommonResource.image;
+		sprite2.Texture = chosenCommonResource2.image;
+		sprite3.Texture = chosenCommonResource3.image;
+
 		GD.Print(number);
 	}
 	public void _on_first_item_pressed()
@@ -50,7 +68,14 @@ public partial class Chest : StaticBody2D
 			player.transitionToNormal();
 			player.upgrade(chosenCommonResource);
 			hud.Visible = false;
-			QueueFree();
+
+			if (numberOfChests == 1)
+			{
+				numberOfChests--;
+				QueueFree();
+				return;
+			}
+			numberOfChests--;
 		}
 	}
 	public void _on_second_item_pressed()
@@ -60,7 +85,14 @@ public partial class Chest : StaticBody2D
 			player.transitionToNormal();
 			player.upgrade(chosenCommonResource2);
 			hud.Visible = false;
-			QueueFree();
+
+			if (numberOfChests == 1)
+			{
+				numberOfChests--;
+				QueueFree();
+				return;
+			}
+			numberOfChests--;
 		}
 	}
 	public void _on_third_item_pressed()
@@ -70,7 +102,14 @@ public partial class Chest : StaticBody2D
 			player.transitionToNormal();
 			player.upgrade(chosenCommonResource3);
 			hud.Visible = false;
-			QueueFree();
+
+			if (numberOfChests == 1)
+			{
+				numberOfChests--;
+				QueueFree();
+				return;
+			}
+			numberOfChests--;
 		}
 	}
 }

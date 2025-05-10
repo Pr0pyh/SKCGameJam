@@ -4,6 +4,8 @@ using System;
 public partial class CommonResource : Resource
 {
 	[Export]
+	public Texture2D image;
+	[Export]
 	public int shotDamage;
 	[Export]
 	public float critChance;
