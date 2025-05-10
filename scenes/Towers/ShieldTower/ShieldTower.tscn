@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://drwqlt3fdp3d"]
+
+[ext_resource type="Script" uid="uid://bxuufqorsaptb" path="res://scenes/Towers/ShieldTower/ShieldTower.cs" id="1_j0qs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1su5"]
+size = Vector2(72, 76)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0qs6"]
+
+[node name="ShieldTower" type="StaticBody2D"]
+script = ExtResource("1_j0qs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e1su5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(18, 70)
+mesh = SubResource("BoxMesh_j0qs6")

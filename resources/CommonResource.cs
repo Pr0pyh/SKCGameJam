@@ -6,9 +6,9 @@ public partial class CommonResource : Resource
 	[Export]
 	public int shotDamage;
 	[Export]
-	public int critChance;
+	public float critChance;
 	[Export]
-	public int critDamage;
+	public float critDamage;
 	[Export]
 	public int health;
 	[Export]
@@ -27,4 +27,6 @@ public partial class CommonResource : Resource
 	public int cashOnKill;
 	[Export]
 	public string imagePath;
+	[Export]
+	public string name;
 }

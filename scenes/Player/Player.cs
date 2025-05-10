@@ -18,7 +18,21 @@ public partial class Player : Node2D
 	[Export]
 	Timer timer;
 	[Export]
+	Timer moneyTimer;
+	[Export]
+	Label moneyLabel;
+	[Export]
 	Camera2D camera;
+	[Export]
+	PackedScene BasicTurretScene;
+	[Export]
+	int neededMoneyBasic;
+	[Export]
+	PackedScene ShieldTurretScene;
+	[Export]
+	int neededMoneyShield;
+	PackedScene chosenTurretScene;
+	int neededMoney;
 	bool canShoot;
 	float amount;
 	float trauma;
@@ -26,13 +40,19 @@ public partial class Player : Node2D
 	//stats
 	float fireRate;
 	int shotDamage;
+	float critChance;
+	float critDamage;
+	int cash;
+	Godot.Collections.Array<Tower> towers;
 	public override void _Ready()
 	{
 		playerState = PLAYER_STATE.NORMAL;
 		shootArea.BodyEntered += bodyEntered;
 		timer.Timeout += resetShot;
+		moneyTimer.Timeout += addMoney;
 		canShoot = true;
 		shotDamage = 5;
+		towers = new Godot.Collections.Array<Tower>();
 	}
 	public override void _Process(double delta)
 	{
@@ -40,6 +60,7 @@ public partial class Player : Node2D
 		{
 			case PLAYER_STATE.NORMAL:
 				attackState();
+				spawnState();
 				if(camera != null) cameraUpdate((float)delta);
 				break;
 			case PLAYER_STATE.UPGRADE:
@@ -64,6 +85,20 @@ public partial class Player : Node2D
 			shoot();
 		}
 	}
+	private void spawnState()
+	{
+		if(Input.IsActionJustPressed("spawn") && (cash>=neededMoney))
+		{
+			Tower tower = (Tower)chosenTurretScene.Instantiate();
+			AddChild(tower);
+			tower.GlobalPosition = GetGlobalMousePosition();
+			tower.Destroyed += deleteTower;
+			towers.Add(tower);
+			GD.Print(towers);
+			cash -= neededMoney;
+			moneyLabel.Text = "Money: " + cash;
+		}
+	}
 	private void cameraUpdate(float delta)
 	{
 		if(!(trauma < 0.0))
@@ -86,7 +121,7 @@ public partial class Player : Node2D
 	{
 		if(body.GetType().IsAssignableTo(typeof(Enemy)))
 		{
-			((Enemy)body).damage(shotDamage);
+			damageEnemy((Enemy)body);
 		}
 		else if(body.GetType().IsAssignableTo(typeof(Chest)))
 		{
@@ -107,6 +142,8 @@ public partial class Player : Node2D
 		timer.WaitTime -= commonResource.fireRate;
 		health += commonResource.health;
 		shotDamage += commonResource.shotDamage;
+		critChance += commonResource.critChance;
+		critDamage += commonResource.critDamage;
 		GD.Print(timer.WaitTime);
 		GD.Print(health);
 		GD.Print(shotDamage);
@@ -126,4 +163,33 @@ public partial class Player : Node2D
         amount = trauma;
 		camera.Offset = new Vector2((float)(amount * (-1)), (float)(amount * (-1)));
     }
+	private void damageEnemy(Enemy enemy)
+	{
+		int chosenDamage;
+		if(GD.RandRange(0, 100) < critChance)
+			chosenDamage = (int)(shotDamage*(1+critDamage));
+		else
+			chosenDamage = shotDamage;
+		enemy.damage(shotDamage);
+	}
+	public void deleteTower(Tower tower)
+	{
+		towers.Remove(tower);
+		GD.Print(towers);
+	}
+	public void addMoney()
+	{
+		cash += 10;
+		moneyLabel.Text = "Money: " + cash;
+	} 
+	public void _on_button_pressed()
+	{
+		chosenTurretScene = BasicTurretScene;
+		neededMoney = neededMoneyBasic;
+	}
+	public void _on_button_2_pressed()
+	{
+		chosenTurretScene = ShieldTurretScene;
+		neededMoney = neededMoneyShield;
+	}
 }

@@ -8,8 +8,14 @@ public partial class BasicEnemy : Enemy
 {
 	[Export]
 	public int speed;
-	public int health = 10;
+	[Export]
+	public Area2D area;
+	public int health = 100;
 	Vector2 moveDir;
+    public override void _Ready()
+    {
+        area.BodyEntered += bodyEntered;
+    }
 	public override void _PhysicsProcess(double delta)
 	{
 		moveDir = new Vector2(-1.0f, 0.0f);
@@ -26,5 +32,10 @@ public partial class BasicEnemy : Enemy
 	private void die()
 	{
 		QueueFree();
+	}
+	public void bodyEntered(Node body)
+	{
+		if(body.GetType().IsAssignableTo(typeof(Tower)))
+			((Tower)body).damage(10);
 	}
 }

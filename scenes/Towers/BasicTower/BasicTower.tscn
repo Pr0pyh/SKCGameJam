@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbl8k1p5a6bni"]
+
+[ext_resource type="Script" uid="uid://d1g1x7u62154k" path="res://scenes/Towers/BasicTower/BasicTower.cs" id="1_oll1t"]
+[ext_resource type="PackedScene" uid="uid://w8flxvi6uog2" path="res://scenes/Towers/Bullet/Bullet.tscn" id="2_at46i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysngq"]
+size = Vector2(42, 42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysngq"]
+
+[node name="BasicTower" type="StaticBody2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_oll1t")
+bulletScene = ExtResource("2_at46i")
+timer = NodePath("Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ysngq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(28, 24)
+mesh = SubResource("BoxMesh_ysngq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true

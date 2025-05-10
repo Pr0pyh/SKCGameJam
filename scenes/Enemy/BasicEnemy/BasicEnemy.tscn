@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://735k864gxdj1"]
+[gd_scene load_steps=6 format=3 uid="uid://735k864gxdj1"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_d4vj8"]
 
@@ -11,8 +11,12 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_d4vj8"]
 material = SubResource("StandardMaterial3D_16bvb")
 
-[node name="BasicEnemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vj8"]
+size = Vector2(47, 20)
+
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area")]
 script = ExtResource("1_d4vj8")
+area = NodePath("DamageArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_16bvb")
@@ -21,3 +25,9 @@ shape = SubResource("RectangleShape2D_16bvb")
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(16, 18)
 mesh = SubResource("BoxMesh_d4vj8")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-13.5, 0)
+shape = SubResource("RectangleShape2D_d4vj8")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyx12v57pm53j"]
+[gd_scene load_steps=15 format=3 uid="uid://dyx12v57pm53j"]
 
 [ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
 [ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
+[ext_resource type="PackedScene" uid="uid://cbl8k1p5a6bni" path="res://scenes/Towers/BasicTower/BasicTower.tscn" id="2_tl8lu"]
 [ext_resource type="Texture2D" uid="uid://chyq4qv0nc6xy" path="res://assets/impactframes/tile003.png" id="3_mmokv"]
+[ext_resource type="PackedScene" uid="uid://drwqlt3fdp3d" path="res://scenes/Towers/ShieldTower/ShieldTower.tscn" id="3_qt7jd"]
 [ext_resource type="Texture2D" uid="uid://bi8n61wcr0oha" path="res://assets/impactframes/tile007.png" id="4_dqp0f"]
 [ext_resource type="Texture2D" uid="uid://bgs4m3fw71kdv" path="res://assets/impactframes/tile011.png" id="5_tl8lu"]
 [ext_resource type="Texture2D" uid="uid://ci8jq8d5dloch" path="res://assets/impactframes/tile015.png" id="6_qt7jd"]
@@ -46,11 +48,17 @@ animations = [{
 "speed": 40.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel")]
 script = ExtResource("1_h00vy")
 shootArea = NodePath("Area2D")
 spriteImpact = NodePath("Area2D/AnimatedSprite2D")
 timer = NodePath("FirerateTimer")
+moneyTimer = NodePath("MoneyTimer")
+moneyLabel = NodePath("CanvasLayer/Control/Label")
+BasicTurretScene = ExtResource("2_tl8lu")
+neededMoneyBasic = 20
+ShieldTurretScene = ExtResource("3_qt7jd")
+neededMoneyShield = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -75,3 +83,45 @@ frame_progress = 1.0
 [node name="FirerateTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="MoneyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 11.0
+offset_right = 406.0
+offset_bottom = 109.0
+text = "basic"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 12.0
+offset_right = 631.0
+offset_bottom = 110.0
+text = "shield
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 50.0
+offset_right = 120.0
+offset_bottom = 73.0
+text = "Money:"
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_button_2_pressed"]
