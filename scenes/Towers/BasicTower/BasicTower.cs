@@ -7,12 +7,13 @@ public partial class BasicTower : Tower
 	public PackedScene bulletScene;
 	[Export]
 	public Timer timer;
+	[Export]
 	public int towerDamage;
     public override void _Ready()
     {
-		turretDamage = 10;
-		turretHealth = 100;
-		turretFireRate = 10;
+		// turretDamage = 10;
+		// turretHealth = 100;
+		// turretFireRate = 10;
         timer.Timeout += onTimeout;
     }
     public override void _Process(double delta)

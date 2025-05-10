@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6j7wuqul7j78"]
+
+[ext_resource type="Script" uid="uid://d1g1x7u62154k" path="res://scenes/Towers/BasicTower/BasicTower.cs" id="1_nimfl"]
+[ext_resource type="PackedScene" uid="uid://w8flxvi6uog2" path="res://scenes/Towers/Bullet/Bullet.tscn" id="2_0ns5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n56ra"]
+size = Vector2(80, 80)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n56ra"]
+
+[node name="FastTower" type="StaticBody2D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_nimfl")
+bulletScene = ExtResource("2_0ns5d")
+timer = NodePath("Timer")
+turretDamage = 5
+turretCritChance = 5
+turretHealth = 50
+turretFireRate = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n56ra")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0.999998, 20)
+scale = Vector2(56, 14)
+mesh = SubResource("BoxMesh_n56ra")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

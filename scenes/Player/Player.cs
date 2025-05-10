@@ -33,6 +33,10 @@ public partial class Player : Node2D
 	PackedScene ShieldTurretScene;
 	[Export]
 	int neededMoneyShield;
+	[Export]
+	PackedScene FastTurretScene;
+	[Export]
+	int neededMoneyFast;
 	PackedScene chosenTurretScene;
 	[Export]
 	GroundChecker groundChecker;
@@ -44,8 +48,8 @@ public partial class Player : Node2D
 	//stats
 	float fireRate;
 	int shotDamage;
-	float critChance;
-	float critDamage;
+	float critChance = 10;
+	float critDamage = 1;
 	int cash;
 	float cashRegen;
 	bool slowOnHit;
@@ -184,20 +188,20 @@ public partial class Player : Node2D
 	private void damageEnemy(Enemy enemy)
 	{
 		int chosenDamage;
-		if(GD.RandRange(0, 100) < critChance)
+		if(GD.RandRange(0, 100) <= critChance)
 			chosenDamage = (int)(shotDamage*(1+critDamage));
 		else
 			chosenDamage = shotDamage;
 		if(pushBackOnHit) enemy.pushBack();
 		if(slowOnHit) enemy.slowDown();
-		
+		showLabel(shotDamage);
 		enemy.damage(shotDamage);
 	}
 	public async void showLabel(int shotDamage)
 	{
 		damageLabel.Text = shotDamage.ToString();
 		damageLabel.Visible = true;
-		await ToSignal(GetTree().CreateTimer(1), "timeout");
+		await ToSignal(GetTree().CreateTimer(0.3), "timeout");
 		damageLabel.Visible = false;
 	}
 	public void deleteTower(Tower tower)
@@ -219,5 +223,10 @@ public partial class Player : Node2D
 	{
 		chosenTurretScene = ShieldTurretScene;
 		neededMoney = neededMoneyShield;
+	}
+	public void _on_button_3_pressed()
+	{
+		chosenTurretScene = FastTurretScene;
+		neededMoney = neededMoneyFast;
 	}
 }
