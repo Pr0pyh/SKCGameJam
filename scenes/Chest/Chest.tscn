@@ -153,6 +153,7 @@ size = Vector2(56, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_11upt"]
 
 [node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("hud", "firstButton", "secondButton", "thirdButton")]
+collision_layer = 4
 script = ExtResource("1_ynxvs")
 hud = NodePath("CanvasLayer")
 firstButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem")
