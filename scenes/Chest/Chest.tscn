@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://vrgt48y3uybr"]
+
+[ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
+[ext_resource type="Script" uid="uid://boaq6a6j3b5qq" path="res://resources/CommonResource.cs" id="2_ewlxh"]
+
+[sub_resource type="Resource" id="Resource_ewlxh"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0
+critDamage = 0
+health = 0
+fireRate = 0.1
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+
+[sub_resource type="Resource" id="Resource_hmwuc"]
+script = ExtResource("2_ewlxh")
+shotDamage = 0
+critChance = 0
+critDamage = 0
+health = 5
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+
+[sub_resource type="Resource" id="Resource_5xm1b"]
+script = ExtResource("2_ewlxh")
+shotDamage = 5
+critChance = 0
+critDamage = 0
+health = 0
+fireRate = 0.0
+turretDamage = 0
+turretCritChance = 0
+turretHealth = 0
+turretFireRate = 0
+cashRegen = 0
+cashOnKill = 0
+imagePath = ""
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11upt"]
+size = Vector2(56, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11upt"]
+
+[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("hud")]
+script = ExtResource("1_ynxvs")
+hud = NodePath("CanvasLayer")
+commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_11upt")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(50, 52)
+mesh = SubResource("BoxMesh_11upt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="UpgradeMenu" type="Control" parent="CanvasLayer"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstItem" type="Button" parent="CanvasLayer/UpgradeMenu"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 315.0
+offset_right = 644.0
+offset_bottom = 346.0
+text = "upgrade firerate"
+
+[connection signal="pressed" from="CanvasLayer/UpgradeMenu/FirstItem" to="." method="_on_first_item_pressed"]

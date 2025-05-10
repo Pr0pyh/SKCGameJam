@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://dyx12v57pm53j"]
+
+[ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
+[ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
+[ext_resource type="Texture2D" uid="uid://chyq4qv0nc6xy" path="res://assets/impactframes/tile003.png" id="3_mmokv"]
+[ext_resource type="Texture2D" uid="uid://bi8n61wcr0oha" path="res://assets/impactframes/tile007.png" id="4_dqp0f"]
+[ext_resource type="Texture2D" uid="uid://bgs4m3fw71kdv" path="res://assets/impactframes/tile011.png" id="5_tl8lu"]
+[ext_resource type="Texture2D" uid="uid://ci8jq8d5dloch" path="res://assets/impactframes/tile015.png" id="6_qt7jd"]
+[ext_resource type="Texture2D" uid="uid://deiyrdglhp4j5" path="res://assets/impactframes/tile018.png" id="7_cd157"]
+[ext_resource type="Texture2D" uid="uid://bv2l5cnfqut0l" path="res://assets/impactframes/tile025.png" id="8_8djf2"]
+[ext_resource type="Texture2D" uid="uid://dx8k20bwfblbk" path="res://assets/impactframes/tile045.png" id="9_mmokv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uj5gi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h00vy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbts4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_puxyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mmokv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dqp0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tl8lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qt7jd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cd157")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8djf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mmokv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer")]
+script = ExtResource("1_h00vy")
+shootArea = NodePath("Area2D")
+spriteImpact = NodePath("Area2D/AnimatedSprite2D")
+timer = NodePath("FirerateTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uj5gi")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+position = Vector2(4.76837e-07, 9.53674e-07)
+scale = Vector2(15.5, 16.5)
+mesh = SubResource("BoxMesh_h00vy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_lbts4")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+
+[node name="FirerateTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
