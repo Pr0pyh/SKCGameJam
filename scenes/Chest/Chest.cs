@@ -17,8 +17,8 @@ public partial class Chest : StaticBody2D
 	CommonResource chosenCommonResource;
 	CommonResource chosenCommonResource2;
 	CommonResource chosenCommonResource3;
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		int number = GD.RandRange(0, commonResources.Count-1);
 		chosenCommonResource = commonResources[number];
 		firstButton.Text = chosenCommonResource.name;
@@ -29,7 +29,7 @@ public partial class Chest : StaticBody2D
 		chosenCommonResource3 = commonResources[number];
 		thirdButton.Text = chosenCommonResource3.name;
 		GD.Print(number);
-    }
+	}
 	public void randomChoose()
 	{
 		int number = GD.RandRange(0, commonResources.Count-1);

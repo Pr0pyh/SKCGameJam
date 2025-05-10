@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://blwjb04iby13b"]
+
+[ext_resource type="Script" uid="uid://bj8fqnesdtixf" path="res://scenes/EnemySpawner/EnemySpawner.cs" id="1_hs4cw"]
+[ext_resource type="Resource" uid="uid://btiqlp45kk5ak" path="res://resources/spawnTemplates/wave0.tres" id="2_hs4cw"]
+[ext_resource type="Resource" uid="uid://dtgbp82yegki8" path="res://resources/SpawnTemplate.tres" id="2_nu1kk"]
+
+[node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnPositions", "waveTimer", "enemySpawnTimer")]
+script = ExtResource("1_hs4cw")
+spawnTemplates = Array[Resource]([ExtResource("2_hs4cw"), ExtResource("2_nu1kk")])
+spawnPositions = [NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4"), NodePath("Node2D5")]
+waveTimer = NodePath("Timer")
+enemySpawnTimer = NodePath("Timer/Timer")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer" type="Timer" parent="Timer"]
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(179, 33)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(179, 62.76)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(179, 100)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(179, 135)
+
+[node name="Node2D5" type="Node2D" parent="."]
+position = Vector2(178, 166)
