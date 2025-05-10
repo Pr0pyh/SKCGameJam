@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 public partial class Player : Node2D
 {
-	enum PLAYER_STATE {
+	enum PLAYER_STATE
+	{
 		NORMAL,
 		UPGRADE
 	}
@@ -46,6 +47,8 @@ public partial class Player : Node2D
 	PackedScene chosenTurretScene;
 	[Export]
 	GroundChecker groundChecker;
+	[Export]
+	AudioStreamPlayer audio;
 	int neededMoney;
 	bool canShoot;
 	float amount;
@@ -76,12 +79,12 @@ public partial class Player : Node2D
 	}
 	public override void _Process(double delta)
 	{
-		switch(playerState)
+		switch (playerState)
 		{
 			case PLAYER_STATE.NORMAL:
 				attackState();
 				spawnState();
-				if(camera != null) cameraUpdate((float)delta);
+				if (camera != null) cameraUpdate((float)delta);
 				break;
 			case PLAYER_STATE.UPGRADE:
 				break;
@@ -100,19 +103,19 @@ public partial class Player : Node2D
 	private void attackState()
 	{
 		shootArea.GlobalPosition = GetGlobalMousePosition();
-		if(Input.IsActionPressed("shoot") && canShoot)
+		if (Input.IsActionPressed("shoot") && canShoot)
 		{
 			shoot();
 		}
 	}
 	private void spawnState()
 	{
-		groundChecker.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X/102)*102, Mathf.Round(GetGlobalMousePosition().Y/102)*102);
-		if(Input.IsActionJustPressed("spawn") && (cash>=neededMoney) && (groundChecker.canPlace) && (groundChecker.onGround))
+		groundChecker.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X / 102) * 102, Mathf.Round(GetGlobalMousePosition().Y / 102) * 102);
+		if (Input.IsActionJustPressed("spawn") && (cash >= neededMoney) && (groundChecker.canPlace) && (groundChecker.onGround))
 		{
 			Tower tower = (Tower)chosenTurretScene.Instantiate();
 			AddChild(tower);
-			tower.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X/102)*102, Mathf.Round(GetGlobalMousePosition().Y/102)*102);
+			tower.GlobalPosition = new Vector2(Mathf.Round(GetGlobalMousePosition().X / 102) * 102, Mathf.Round(GetGlobalMousePosition().Y / 102) * 102);
 			tower.Destroyed += deleteTower;
 			towers.Add(tower);
 			GD.Print(towers);
@@ -122,11 +125,11 @@ public partial class Player : Node2D
 	}
 	private void cameraUpdate(float delta)
 	{
-		if(!(trauma < 0.0))
-        {
-            shake();
-            trauma = Mathf.Max((float)(trauma - 3*delta), 0.0f);
-        }
+		if (!(trauma < 0.0))
+		{
+			shake();
+			trauma = Mathf.Max((float)(trauma - 3 * delta), 0.0f);
+		}
 	}
 	private void shoot()
 	{
@@ -137,14 +140,15 @@ public partial class Player : Node2D
 		spriteImpact.Stop();
 		spriteImpact.Play();
 		timer.Start();
+		audio.Play();
 	}
 	public void bodyEntered(Node body)
 	{
-		if(body.GetType().IsAssignableTo(typeof(Enemy)))
+		if (body.GetType().IsAssignableTo(typeof(Enemy)))
 		{
 			damageEnemy((Enemy)body);
 		}
-		else if(body.GetType().IsAssignableTo(typeof(Chest)))
+		else if (body.GetType().IsAssignableTo(typeof(Chest)))
 		{
 			((Chest)body).player = this;
 			((Chest)body).hud.Visible = true;
@@ -160,21 +164,20 @@ public partial class Player : Node2D
 	}
 	public void upgrade(CommonResource commonResource)
 	{
-		if(timer.WaitTime > 0.1) timer.WaitTime -= commonResource.fireRate;
-		health += commonResource.health;
+		if (timer.WaitTime > 0.1) timer.WaitTime -= commonResource.fireRate;
 		shotDamage += commonResource.shotDamage;
 		critChance += commonResource.critChance;
 		critDamage += commonResource.critDamage;
 		moneyTimer.WaitTime -= commonResource.cashRegen;
-		foreach(Tower tower in towers)
+		foreach (Tower tower in towers)
 		{
 			tower.turretDamage += commonResource.turretDamage;
 			tower.turretCritChance += commonResource.turretCritChance;
 			tower.turretHealth += commonResource.turretHealth;
 			tower.turretFireRate -= commonResource.turretFireRate;
 		}
-		if(slowOnHit == false) slowOnHit = commonResource.slowOnHit;
-		if(pushBackOnHit == false) pushBackOnHit = commonResource.pushBackOnHit;
+		if (slowOnHit == false) slowOnHit = commonResource.slowOnHit;
+		if (pushBackOnHit == false) pushBackOnHit = commonResource.pushBackOnHit;
 		GD.Print(timer.WaitTime);
 		GD.Print(health);
 		GD.Print(shotDamage);
@@ -190,19 +193,19 @@ public partial class Player : Node2D
 		trauma = 7.0f;
 	}
 	private void shake()
-    {
-        amount = trauma;
+	{
+		amount = trauma;
 		camera.Offset = new Vector2((float)(amount * (-1)), (float)(amount * (-1)));
-    }
+	}
 	private void damageEnemy(Enemy enemy)
 	{
 		int chosenDamage;
-		if(GD.RandRange(0, 100) <= critChance)
-			chosenDamage = (int)(shotDamage*(1+critDamage));
+		if (GD.RandRange(0, 100) <= critChance)
+			chosenDamage = (int)(shotDamage * (1 + critDamage));
 		else
 			chosenDamage = shotDamage;
-		if(pushBackOnHit) enemy.pushBack();
-		if(slowOnHit) enemy.slowDown();
+		if (pushBackOnHit) enemy.pushBack();
+		if (slowOnHit) enemy.slowDown();
 		showLabel(shotDamage);
 		enemy.damage(shotDamage);
 	}
@@ -222,7 +225,7 @@ public partial class Player : Node2D
 	{
 		cash += 10;
 		moneyLabel.Text = "Money: " + cash;
-	} 
+	}
 	public void _on_button_pressed()
 	{
 		chosenTurretScene = BasicTurretScene;

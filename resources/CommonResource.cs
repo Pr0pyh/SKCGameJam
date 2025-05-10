@@ -12,8 +12,6 @@ public partial class CommonResource : Resource
 	[Export]
 	public float critDamage;
 	[Export]
-	public int health;
-	[Export]
 	public float fireRate;
 	[Export]
 	public int turretDamage;

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://nnsliof02f1k"]
 
-[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/BasicEnemy2.tscn" id="2_pp8gi"]
+[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="2_pp8gi"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="4_r04yy"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cv8bjm4dvd8ut"]
 
-[ext_resource type="PackedScene" uid="uid://ci1giyajllmvw" path="res://scenes/Enemy/BasicEnemy/BasicEnemy3.tscn" id="1_kaj6s"]
+[ext_resource type="PackedScene" uid="uid://ci1giyajllmvw" path="res://scenes/Enemy/BasicEnemy/enemyAltKuja.tscn" id="1_kaj6s"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="4_typy2"]
 
 [resource]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=26 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
 [ext_resource type="Texture2D" uid="uid://bh6krdvx2fbul" path="res://assets/upgradeIcons/kafa.png" id="2_dbka4"]
@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://rx1xomdx0ypt" path="res://icon.svg" id="3_hmwuc"]
 [ext_resource type="Texture2D" uid="uid://2sjbkn3q2upm" path="res://assets/upgradeIcons/slina.png" id="4_4h4g4"]
 [ext_resource type="Texture2D" uid="uid://m6jwkl522npm" path="res://assets/upgradeIcons/naocare.png" id="4_gcywl"]
+[ext_resource type="Texture2D" uid="uid://u2euw0504ky4" path="res://assets/upgradeIcons/protein.png" id="4_kl71k"]
 [ext_resource type="Texture2D" uid="uid://dvot7xajoe565" path="res://assets/upgradeIcons/lepeza.png" id="5_hpdqa"]
 [ext_resource type="Texture2D" uid="uid://cucub7u2343go" path="res://assets/upgradeIcons/rukavice.png" id="5_kl71k"]
 [ext_resource type="Texture2D" uid="uid://6byh7jdifoab" path="res://assets/upgradeIcons/pecat.png" id="6_as6cb"]
+[ext_resource type="Texture2D" uid="uid://dohr2xkyk6vah" path="res://assets/upgradeIcons/cek.png" id="7_m77y3"]
+[ext_resource type="Texture2D" uid="uid://b74k2t8d4b6gt" path="res://assets/upgradeIcons/diploma.png" id="8_ujwlx"]
+[ext_resource type="Texture2D" uid="uid://diotyvkqrdx1k" path="res://assets/upgradeIcons/sat.png" id="10_17g1l"]
 
 [sub_resource type="Resource" id="Resource_ewlxh"]
 script = ExtResource("2_ewlxh")
@@ -16,7 +20,6 @@ image = ExtResource("2_dbka4")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.1
 turretDamage = 0
 turretCritChance = 0
@@ -29,30 +32,12 @@ pushBackOnHit = false
 imagePath = ""
 name = "Fire Rate upgrade"
 
-[sub_resource type="Resource" id="Resource_hmwuc"]
-script = ExtResource("2_ewlxh")
-shotDamage = 0
-critChance = 0.0
-critDamage = 0.0
-health = 5
-fireRate = 0.0
-turretDamage = 0
-turretCritChance = 0
-turretHealth = 0
-turretFireRate = 0
-cashRegen = 0
-cashOnKill = 0
-slowOnHit = false
-pushBackOnHit = false
-imagePath = ""
-name = "Health upgrade"
-
 [sub_resource type="Resource" id="Resource_5xm1b"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("4_kl71k")
 shotDamage = 5
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -71,7 +56,6 @@ image = ExtResource("4_gcywl")
 shotDamage = 0
 critChance = 10.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -90,7 +74,6 @@ image = ExtResource("5_kl71k")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.2
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -105,10 +88,10 @@ name = "Crit Damage update"
 
 [sub_resource type="Resource" id="Resource_4h4g4"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("7_m77y3")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 5
 turretCritChance = 0
@@ -123,10 +106,10 @@ name = "Turret damage upgrade"
 
 [sub_resource type="Resource" id="Resource_hpdqa"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("8_ujwlx")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -145,7 +128,6 @@ image = ExtResource("6_as6cb")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 10
@@ -160,10 +142,10 @@ name = "Turret crit chance"
 
 [sub_resource type="Resource" id="Resource_kl71k"]
 script = ExtResource("2_ewlxh")
+image = ExtResource("10_17g1l")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -182,7 +164,6 @@ image = ExtResource("4_4h4g4")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -201,7 +182,6 @@ image = ExtResource("5_hpdqa")
 shotDamage = 0
 critChance = 0.0
 critDamage = 0.0
-health = 0
 fireRate = 0.0
 turretDamage = 0
 turretCritChance = 0
@@ -229,7 +209,7 @@ thirdButton = NodePath("CanvasLayer/UpgradeMenu/FirstItem3")
 sprite1 = NodePath("CanvasLayer/UpgradeMenu/FirstItem/Sprite2D")
 sprite2 = NodePath("CanvasLayer/UpgradeMenu/FirstItem2/Sprite2D")
 sprite3 = NodePath("CanvasLayer/UpgradeMenu/FirstItem3/Sprite2D")
-commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_hmwuc"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k"), SubResource("Resource_as6cb"), SubResource("Resource_e4qv3")])
+commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("Resource_5xm1b"), SubResource("Resource_ejsq6"), SubResource("Resource_dbka4"), SubResource("Resource_4h4g4"), SubResource("Resource_hpdqa"), SubResource("Resource_gcywl"), SubResource("Resource_kl71k"), SubResource("Resource_as6cb"), SubResource("Resource_e4qv3")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_11upt")

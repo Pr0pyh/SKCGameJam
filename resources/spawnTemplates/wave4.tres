@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://e4slnup10vbk"]
 
-[ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.tscn" id="1_rls68"]
-[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/BasicEnemy2.tscn" id="2_sik6m"]
-[ext_resource type="PackedScene" uid="uid://dsfk5mosmc6be" path="res://scenes/Enemy/BasicEnemy/BasicEnemy1.tscn" id="3_qodde"]
+[ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/enemyBiznis.tscn" id="1_rls68"]
+[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="2_sik6m"]
+[ext_resource type="PackedScene" uid="uid://dsfk5mosmc6be" path="res://scenes/Enemy/BasicEnemy/enemyTuznaZena.tscn" id="3_qodde"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="4_6wxn1"]
 
 [resource]
