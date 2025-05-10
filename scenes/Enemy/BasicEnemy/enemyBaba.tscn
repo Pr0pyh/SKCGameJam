@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbdrshhrnqwki"]
 
-[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_wovep"]
-[ext_resource type="Texture2D" uid="uid://dfk4gf0ahbn76" path="res://assets/enemies/tuzna zena/poreska3.png" id="2_wovep"]
-[ext_resource type="Texture2D" uid="uid://buqnj3bp7lvvx" path="res://assets/enemies/tuzna zena/poreska1.png" id="3_7xaqi"]
-[ext_resource type="Texture2D" uid="uid://cts82oaopos38" path="res://assets/enemies/tuzna zena/poreska2.png" id="4_i6lcx"]
-[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_xrqj4"]
+[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_gbmfd"]
+[ext_resource type="Texture2D" uid="uid://dfk4gf0ahbn76" path="res://assets/enemies/tuzna zena/poreska3.png" id="2_jru61"]
+[ext_resource type="Texture2D" uid="uid://buqnj3bp7lvvx" path="res://assets/enemies/tuzna zena/poreska1.png" id="3_l3xc8"]
+[ext_resource type="Texture2D" uid="uid://cts82oaopos38" path="res://assets/enemies/tuzna zena/poreska2.png" id="4_vnp4g"]
+[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_l2ya3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -12,7 +12,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_wovep")
+"texture": ExtResource("2_jru61")
 }],
 "loop": false,
 "name": &"hurt",
@@ -20,10 +20,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_7xaqi")
+"texture": ExtResource("3_l3xc8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i6lcx")
+"texture": ExtResource("4_vnp4g")
 }],
 "loop": true,
 "name": &"walk",
@@ -105,7 +105,7 @@ _data = {
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
-script = ExtResource("1_wovep")
+script = ExtResource("1_gbmfd")
 speed = 4
 area = NodePath("DamageArea")
 damageRate = 1.0
@@ -136,7 +136,7 @@ physics_interpolation_mode = 0
 position = Vector2(0, 0.519481)
 emitting = false
 amount = 15
-texture = ExtResource("5_xrqj4")
+texture = ExtResource("5_l2ya3")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

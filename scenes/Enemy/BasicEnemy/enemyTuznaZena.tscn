@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dsfk5mosmc6be"]
 
-[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_3ogek"]
-[ext_resource type="Texture2D" uid="uid://2tjgma47y1w3" path="res://assets/enemies/novinar/novinar3.png" id="2_3ogek"]
-[ext_resource type="Texture2D" uid="uid://c1i4qu4wtip0x" path="res://assets/enemies/novinar/novinar1.png" id="3_3ogek"]
-[ext_resource type="Texture2D" uid="uid://c636oylwrcrye" path="res://assets/enemies/novinar/novinar2.png" id="4_0pj13"]
-[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_m0wf2"]
+[ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_diqhk"]
+[ext_resource type="Texture2D" uid="uid://2tjgma47y1w3" path="res://assets/enemies/novinar/novinar3.png" id="2_wk0h6"]
+[ext_resource type="Texture2D" uid="uid://c1i4qu4wtip0x" path="res://assets/enemies/novinar/novinar1.png" id="3_csmi4"]
+[ext_resource type="Texture2D" uid="uid://c636oylwrcrye" path="res://assets/enemies/novinar/novinar2.png" id="4_dppdg"]
+[ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_eno5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -12,7 +12,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3ogek")
+"texture": ExtResource("2_wk0h6")
 }],
 "loop": false,
 "name": &"hurt",
@@ -20,10 +20,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_3ogek")
+"texture": ExtResource("3_csmi4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0pj13")
+"texture": ExtResource("4_dppdg")
 }],
 "loop": true,
 "name": &"walk",
@@ -105,7 +105,7 @@ _data = {
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
-script = ExtResource("1_3ogek")
+script = ExtResource("1_diqhk")
 speed = 20
 area = NodePath("DamageArea")
 damageRate = 1.0
@@ -135,7 +135,7 @@ physics_interpolation_mode = 0
 position = Vector2(0, 0.519481)
 emitting = false
 amount = 15
-texture = ExtResource("5_m0wf2")
+texture = ExtResource("5_eno5n")
 lifetime = 0.25
 one_shot = true
 explosiveness = 1.0

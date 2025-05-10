@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyx12v57pm53j"]
+[gd_scene load_steps=18 format=3 uid="uid://dyx12v57pm53j"]
 
 [ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
 [ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2l5cnfqut0l" path="res://assets/impactframes/tile025.png" id="8_8djf2"]
 [ext_resource type="Texture2D" uid="uid://dx8k20bwfblbk" path="res://assets/impactframes/tile045.png" id="9_mmokv"]
 [ext_resource type="AudioStream" uid="uid://17oq16enc88w" path="res://assets/audio/91572__steveygos93__layeredgunshot.wav" id="13_cd157"]
+[ext_resource type="AudioStream" uid="uid://bvlc5gcmxy054" path="res://assets/audio/track.wav" id="14_8djf2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5gi"]
 
@@ -156,6 +157,12 @@ text = "Money:"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_cd157")
+volume_db = -15.829
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8djf2")
+volume_db = -10.286
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_button_2_pressed"]
