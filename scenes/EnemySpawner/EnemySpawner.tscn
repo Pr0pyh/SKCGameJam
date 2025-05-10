@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bj8fqnesdtixf" path="res://scenes/EnemySpawner/EnemySpawner.cs" id="1_hs4cw"]
 [ext_resource type="Resource" uid="uid://btiqlp45kk5ak" path="res://resources/spawnTemplates/wave0.tres" id="2_hs4cw"]
-[ext_resource type="Resource" uid="uid://dtgbp82yegki8" path="res://resources/SpawnTemplate.tres" id="2_nu1kk"]
+[ext_resource type="Resource" path="res://resources/SpawnTemplate.tres" id="2_nu1kk"]
 
 [node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnPositions", "waveTimer", "enemySpawnTimer")]
 script = ExtResource("1_hs4cw")

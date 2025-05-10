@@ -15,6 +15,7 @@ material = SubResource("StandardMaterial3D_16bvb")
 size = Vector2(47, 20)
 
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area")]
+collision_layer = 2
 script = ExtResource("1_d4vj8")
 speed = 2
 area = NodePath("DamageArea")
