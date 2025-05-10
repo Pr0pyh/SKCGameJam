@@ -5,8 +5,7 @@
 
 [resource]
 script = ExtResource("2_w5mdd")
-timeForWaveToLastFor = 5.0
+timeForWaveToLastFor = 30.0
 enemyVariants = Array[PackedScene]([ExtResource("1_yaorc")])
-spawnTimer = Array[float]([1.0, 3.0])
-lanesToSpawnIn = Array[float]([1.0, 2.0])
-spawnInLane = Array[float]([1.0, 1.0])
+spawnTimer = Array[float]([10.0, 12.0])
+lanesToSpawnIn = Array[float]([1.0, 1.0])

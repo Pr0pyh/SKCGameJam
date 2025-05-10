@@ -9,4 +9,3 @@ timeForWaveToLastFor = 5.0
 enemyVariants = Array[PackedScene]([ExtResource("1_rfha0")])
 spawnTimer = Array[float]([1.0, 3.0])
 lanesToSpawnIn = Array[float]([1.0, 2.0])
-spawnInLane = Array[float]([1.0, 1.0])

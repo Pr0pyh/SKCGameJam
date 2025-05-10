@@ -12,12 +12,13 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_16bvb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4vj8"]
-size = Vector2(47, 20)
+size = Vector2(32.0779, 9.35065)
 
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area")]
+scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_d4vj8")
-speed = 2
+speed = 10
 area = NodePath("DamageArea")
 damageRate = 1.0
 
@@ -32,5 +33,5 @@ mesh = SubResource("BoxMesh_d4vj8")
 [node name="DamageArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(-13.5, 0)
+position = Vector2(-6.03896, 0)
 shape = SubResource("RectangleShape2D_d4vj8")
