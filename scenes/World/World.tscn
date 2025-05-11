@@ -82,10 +82,11 @@ offset_bottom = 629.0
 theme = ExtResource("9_ictkp")
 text = "Escape - Exit"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("nodeToEnableOnDie")]
 position = Vector2(243, 243)
 collision_mask = 2
 script = ExtResource("7_p47ta")
+nodeToEnableOnDie = NodePath("CanvasLayer/Control")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-204, 107)
@@ -96,6 +97,7 @@ shape = SubResource("RectangleShape2D_ictkp")
 layer = 2
 
 [node name="Control" type="Control" parent="Area2D/CanvasLayer"]
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 0

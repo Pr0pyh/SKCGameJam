@@ -23,6 +23,7 @@ public partial class killArea : Area2D
     }
     public void _on_button_pressed()
     {
+        GetTree().Paused = false;
         GetTree().ChangeSceneToFile("res://scenes/MainMenu/MainMenu.tscn");
     }
 

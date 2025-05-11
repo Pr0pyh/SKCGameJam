@@ -90,6 +90,7 @@ public partial class Player : Node2D
 				attackState();
 				spawnState();
 				if (camera != null) cameraUpdate((float)delta);
+				exitInput();
 				break;
 			case PLAYER_STATE.UPGRADE:
 				break;
@@ -131,7 +132,7 @@ public partial class Player : Node2D
 	}
 	public void exitInput()
 	{
-		if(Input.IsActionJustPressed("exit"))
+		if (Input.IsActionJustPressed("quit"))
 			GetTree().Quit();
 	}
 	private void cameraUpdate(float delta)
