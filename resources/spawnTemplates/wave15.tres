@@ -1,13 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://blq4v01v3a2p3"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://blq4v01v3a2p3"]
 
 [ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/enemyBiznis.tscn" id="1_5pabw"]
 [ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="2_tqfgi"]
 [ext_resource type="PackedScene" uid="uid://dsfk5mosmc6be" path="res://scenes/Enemy/BasicEnemy/enemyTuznaZena.tscn" id="3_x8w5j"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="4_jb5j0"]
+[ext_resource type="PackedScene" uid="uid://dkjpeejfxdpxd" path="res://scenes/Enemy/BasicEnemy/enemyKarleusa.tscn" id="4_tv35u"]
 
 [resource]
 script = ExtResource("4_jb5j0")
 timeForWaveToLastFor = 30.0
-enemyVariants = Array[PackedScene]([ExtResource("1_5pabw"), ExtResource("2_tqfgi"), ExtResource("3_x8w5j")])
+enemyVariants = Array[PackedScene]([ExtResource("1_5pabw"), ExtResource("2_tqfgi"), ExtResource("3_x8w5j"), ExtResource("4_tv35u")])
 spawnTimer = Array[float]([6.0, 8.0])
 lanesToSpawnIn = Array[float]([2.0, 3.0])
