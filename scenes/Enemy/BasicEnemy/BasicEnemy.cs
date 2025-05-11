@@ -18,6 +18,8 @@ public partial class BasicEnemy : Enemy
 	public int health = 100;
 	Vector2 moveDir;
 	[Export]
+	public AudioStreamPlayer audioHit;
+	[Export]
 	public AnimatedSprite2D sprite;
 	[Export]
 	public AnimationPlayer animationPlayer;
@@ -44,17 +46,18 @@ public partial class BasicEnemy : Enemy
 		sprite.Play("hurt");
 		animationPlayer.Play("Shake");
 		progressBar.Value = health;
+		audioHit.Play();
 	}
 	public override void pushBack()
 	{
 		Position += new Vector2(70.0f, 0.0f);
 	}
-    public override async void slowDown()
-    {
-        speed /= 4;
+	public override async void slowDown()
+	{
+		speed /= 4;
 		await ToSignal(GetTree().CreateTimer(3), "timeout");
 		speed *= 4;
-    }
+	}
 	private void die()
 	{
 		QueueFree();

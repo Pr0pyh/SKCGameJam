@@ -53,6 +53,7 @@ autostart = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
@@ -60,6 +61,7 @@ texture = ExtResource("4_hhao0")
 position = Vector2(0, 92)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
@@ -67,6 +69,7 @@ texture = ExtResource("4_hhao0")
 position = Vector2(0, 184)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D3"]
+modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
@@ -74,6 +77,7 @@ texture = ExtResource("4_hhao0")
 position = Vector2(0, 276)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D4"]
+modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
 
@@ -81,5 +85,6 @@ texture = ExtResource("4_hhao0")
 position = Vector2(-1, 368)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D5"]
+modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")

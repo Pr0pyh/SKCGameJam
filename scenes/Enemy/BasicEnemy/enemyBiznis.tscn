@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://735k864gxdj1"]
+[gd_scene load_steps=17 format=3 uid="uid://735k864gxdj1"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_1nt4t"]
 [ext_resource type="Texture2D" uid="uid://bew4svoa6538v" path="res://assets/enemies/biznismen/biznismen3.png" id="2_6vkip"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfb1t0jw1i27v" path="res://assets/enemies/biznismen/biznismen2.png" id="4_s0i5a"]
 [ext_resource type="Texture2D" uid="uid://5wbrh7ra7g5u" path="res://assets/pare/spritesheet.png" id="5_f2i3u"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="6_6vkip"]
+[ext_resource type="AudioStream" uid="uid://8tmu5nq6cqo5" path="res://assets/audio/hitEnemy.wav" id="7_u1ybu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -110,13 +111,14 @@ _data = {
 &"Shake": SubResource("Animation_6juel")
 }
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer", "progressBar")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "audioHit", "sprite", "animationPlayer", "progressBar")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_1nt4t")
 speed = 10
 area = NodePath("DamageArea")
 damageRate = 1.0
+audioHit = NodePath("HitEnemy")
 sprite = NodePath("AnimatedSprite2D")
 animationPlayer = NodePath("AnimationPlayer")
 progressBar = NodePath("ProgressBar")
@@ -176,3 +178,6 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_6vkip")
 value = 100.0
 show_percentage = false
+
+[node name="HitEnemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u1ybu")
