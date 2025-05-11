@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://baef146wgqjuo"]
+
+[ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/enemyBiznis.tscn" id="1_o0fkf"]
+[ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="2_3d57e"]
+
+[resource]
+script = ExtResource("2_3d57e")
+timeForWaveToLastFor = 30.0
+enemyVariants = Array[PackedScene]([ExtResource("1_o0fkf")])
+spawnTimer = Array[float]([7.0, 9.0])
+lanesToSpawnIn = Array[float]([2.0, 3.0])

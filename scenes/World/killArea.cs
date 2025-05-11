@@ -3,7 +3,8 @@ using System;
 
 public partial class killArea : Area2D
 {
-
+    [Export]
+    public Control nodeToEnableOnDie;
     public override void _Ready()
     {
 
@@ -17,6 +18,12 @@ public partial class killArea : Area2D
         {
             ((Enemy)body).damage(100000);
             GetTree().Paused = true;
+            nodeToEnableOnDie.Visible = true;
         }
     }
+    public void _on_button_pressed()
+    {
+        GetTree().ChangeSceneToFile("res://scenes/MainMenu/MainMenu.tscn");
+    }
+
 }

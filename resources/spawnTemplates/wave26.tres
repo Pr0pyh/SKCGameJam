@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://kvfpedvroujl"]
+
+[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="1_d2xlv"]
+[ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="4_188ln"]
+[ext_resource type="PackedScene" uid="uid://dkjpeejfxdpxd" path="res://scenes/Enemy/BasicEnemy/enemyKarleusa.tscn" id="4_ybhuq"]
+
+[resource]
+script = ExtResource("4_188ln")
+timeForWaveToLastFor = 30.0
+enemyVariants = Array[PackedScene]([ExtResource("1_d2xlv"), ExtResource("4_ybhuq")])
+spawnTimer = Array[float]([3.0, 8.06])
+lanesToSpawnIn = Array[float]([2.0, 4.0])

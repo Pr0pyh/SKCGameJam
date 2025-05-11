@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blwjb04iby13b"]
+[gd_scene load_steps=36 format=3 uid="uid://blwjb04iby13b"]
 
 [ext_resource type="Script" uid="uid://bj8fqnesdtixf" path="res://scenes/EnemySpawner/EnemySpawner.cs" id="1_hs4cw"]
 [ext_resource type="Resource" uid="uid://btiqlp45kk5ak" path="res://resources/spawnTemplates/wave0.tres" id="2_hs4cw"]
@@ -14,10 +14,31 @@
 [ext_resource type="Resource" uid="uid://d2bmkqgo51dt6" path="res://resources/spawnTemplates/wave8.tres" id="10_u1eut"]
 [ext_resource type="Resource" uid="uid://ttqy1u322biy" path="res://resources/spawnTemplates/wave9.tres" id="11_lm1wj"]
 [ext_resource type="Resource" uid="uid://cv8bjm4dvd8ut" path="res://resources/spawnTemplates/wave10.tres" id="12_syl1c"]
+[ext_resource type="Resource" uid="uid://b0mfa0tlsteix" path="res://resources/spawnTemplates/wave11.tres" id="13_dqnk3"]
+[ext_resource type="Resource" uid="uid://baef146wgqjuo" path="res://resources/spawnTemplates/wave12.tres" id="14_iouqm"]
+[ext_resource type="Resource" uid="uid://cjikao624cpu2" path="res://resources/spawnTemplates/wave13.tres" id="15_vxyrb"]
+[ext_resource type="Resource" uid="uid://c6r56df66juav" path="res://resources/spawnTemplates/wave14.tres" id="16_oddso"]
+[ext_resource type="Resource" uid="uid://blq4v01v3a2p3" path="res://resources/spawnTemplates/wave15.tres" id="17_qsm1n"]
+[ext_resource type="Resource" uid="uid://carrqqh7mgp4l" path="res://resources/spawnTemplates/wave16.tres" id="18_flcjg"]
+[ext_resource type="Resource" uid="uid://bpkhnqxbkkh58" path="res://resources/spawnTemplates/wave17.tres" id="19_eef8m"]
+[ext_resource type="Resource" uid="uid://d0b0fmhgsu07k" path="res://resources/spawnTemplates/wave18.tres" id="20_budtx"]
+[ext_resource type="Resource" uid="uid://cld6m7wh5yxs1" path="res://resources/spawnTemplates/wave19.tres" id="21_faxl0"]
+[ext_resource type="Resource" uid="uid://d3mx8atdh5ev0" path="res://resources/spawnTemplates/wave20.tres" id="22_c3mum"]
+[ext_resource type="Resource" uid="uid://dt6dxkbvmvc2q" path="res://resources/spawnTemplates/wave21.tres" id="23_qfyyh"]
+[ext_resource type="Resource" uid="uid://bi42llaarhket" path="res://resources/spawnTemplates/wave22.tres" id="24_33k08"]
+[ext_resource type="Resource" uid="uid://c8ehpbgeclmwy" path="res://resources/spawnTemplates/wave23.tres" id="25_iau5u"]
+[ext_resource type="Resource" uid="uid://drtrukmy16q4m" path="res://resources/spawnTemplates/wave24.tres" id="26_qr1nx"]
+[ext_resource type="Resource" uid="uid://bkmgubcljnx8q" path="res://resources/spawnTemplates/wave25.tres" id="27_7cuo4"]
+[ext_resource type="Resource" uid="uid://kvfpedvroujl" path="res://resources/spawnTemplates/wave26.tres" id="28_0jpek"]
+[ext_resource type="Resource" uid="uid://1dou123k6yx7" path="res://resources/spawnTemplates/wave27.tres" id="29_45nt3"]
+[ext_resource type="Resource" uid="uid://ctca3us1t0nor" path="res://resources/spawnTemplates/wave28.tres" id="30_kdp71"]
+[ext_resource type="Resource" uid="uid://btw31831kb0qm" path="res://resources/spawnTemplates/wave29.tres" id="31_61gkd"]
+[ext_resource type="Resource" uid="uid://by3xdohvxgecl" path="res://resources/spawnTemplates/wave30.tres" id="32_jftld"]
+[ext_resource type="Resource" uid="uid://brxj0p7h24d00" path="res://resources/spawnTemplates/wave31.tres" id="33_co1o4"]
 
 [node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnPositions", "waveTimer", "enemySpawnTimer")]
 script = ExtResource("1_hs4cw")
-spawnTemplates = Array[Resource]([ExtResource("2_hs4cw"), ExtResource("3_sreu6"), ExtResource("4_ckqp1"), ExtResource("5_nplfb"), ExtResource("6_2ls8o"), ExtResource("7_tffj1"), ExtResource("8_4ksew"), ExtResource("9_qfoi8"), ExtResource("10_u1eut"), ExtResource("11_lm1wj"), ExtResource("12_syl1c")])
+spawnTemplates = Array[Resource]([ExtResource("2_hs4cw"), ExtResource("3_sreu6"), ExtResource("4_ckqp1"), ExtResource("5_nplfb"), ExtResource("6_2ls8o"), ExtResource("7_tffj1"), ExtResource("8_4ksew"), ExtResource("9_qfoi8"), ExtResource("10_u1eut"), ExtResource("11_lm1wj"), ExtResource("12_syl1c"), ExtResource("13_dqnk3"), ExtResource("14_iouqm"), ExtResource("15_vxyrb"), ExtResource("16_oddso"), ExtResource("17_qsm1n"), ExtResource("18_flcjg"), ExtResource("19_eef8m"), ExtResource("20_budtx"), ExtResource("21_faxl0"), ExtResource("22_c3mum"), ExtResource("23_qfyyh"), ExtResource("24_33k08"), ExtResource("25_iau5u"), ExtResource("26_qr1nx"), ExtResource("27_7cuo4"), ExtResource("28_0jpek"), ExtResource("29_45nt3"), ExtResource("30_kdp71"), ExtResource("31_61gkd"), ExtResource("32_jftld"), ExtResource("33_co1o4")])
 spawnPositions = [NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4"), NodePath("Node2D5")]
 waveTimer = NodePath("Timer")
 enemySpawnTimer = NodePath("Timer/Timer")

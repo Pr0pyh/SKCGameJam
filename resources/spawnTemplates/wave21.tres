@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dt6dxkbvmvc2q"]
+
+[ext_resource type="PackedScene" uid="uid://ci1giyajllmvw" path="res://scenes/Enemy/BasicEnemy/enemyAltKuja.tscn" id="1_tq8th"]
+[ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="2_jt4f0"]
+
+[resource]
+script = ExtResource("2_jt4f0")
+timeForWaveToLastFor = 30.0
+enemyVariants = Array[PackedScene]([ExtResource("1_tq8th")])
+spawnTimer = Array[float]([10.0, 11.0])
+lanesToSpawnIn = Array[float]([5.0, 6.0])

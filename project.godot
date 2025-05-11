@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SKCGameJam"
-run/main_scene="uid://vvfi1wlr4ph6"
+run/main_scene="uid://bpdrxn75f3fg8"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

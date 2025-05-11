@@ -8,4 +8,4 @@ script = ExtResource("4_typy2")
 timeForWaveToLastFor = 30.0
 enemyVariants = Array[PackedScene]([ExtResource("1_kaj6s")])
 spawnTimer = Array[float]([13.0, 14.0])
-lanesToSpawnIn = Array[float]([5.0, 5.0])
+lanesToSpawnIn = Array[float]([5.0, 6.0])

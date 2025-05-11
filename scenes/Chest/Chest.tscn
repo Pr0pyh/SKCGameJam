@@ -224,7 +224,7 @@ scale = Vector2(50, 52)
 mesh = SubResource("BoxMesh_11upt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.168, 0.252)
+scale = Vector2(0.252, 0.252)
 texture = ExtResource("13_4uw13")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

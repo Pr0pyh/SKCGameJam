@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=3 uid="uid://4mvsrxfix0fd"]
 
 [ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/enemyBiznis.tscn" id="1_7n03p"]
-[ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="2_nj8nm"]
+[ext_resource type="PackedScene" uid="uid://dsfk5mosmc6be" path="res://scenes/Enemy/BasicEnemy/enemyTuznaZena.tscn" id="2_nj8nm"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="2_uvgnw"]
 
 [resource]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bi42llaarhket"]
+
+[ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="2_3d57e"]
+[ext_resource type="PackedScene" uid="uid://dkjpeejfxdpxd" path="res://scenes/Enemy/BasicEnemy/enemyKarleusa.tscn" id="2_sffpm"]
+
+[resource]
+script = ExtResource("2_3d57e")
+timeForWaveToLastFor = 30.0
+enemyVariants = Array[PackedScene]([ExtResource("2_sffpm")])
+spawnTimer = Array[float]([5.0, 7.0])
+lanesToSpawnIn = Array[float]([2.0, 3.0])

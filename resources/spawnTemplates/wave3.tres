@@ -1,13 +1,12 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c51x5ii5vb86m"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c51x5ii5vb86m"]
 
 [ext_resource type="PackedScene" uid="uid://735k864gxdj1" path="res://scenes/Enemy/BasicEnemy/enemyBiznis.tscn" id="1_85hgk"]
 [ext_resource type="PackedScene" uid="uid://dbdrshhrnqwki" path="res://scenes/Enemy/BasicEnemy/enemyBaba.tscn" id="2_t0pre"]
 [ext_resource type="Script" uid="uid://cp03lhng68vvv" path="res://resources/SpawnTemplate.cs" id="3_2kkh1"]
-[ext_resource type="PackedScene" uid="uid://dsfk5mosmc6be" path="res://scenes/Enemy/BasicEnemy/enemyTuznaZena.tscn" id="3_t0pre"]
 
 [resource]
 script = ExtResource("3_2kkh1")
 timeForWaveToLastFor = 30.0
-enemyVariants = Array[PackedScene]([ExtResource("1_85hgk"), ExtResource("2_t0pre"), ExtResource("3_t0pre")])
+enemyVariants = Array[PackedScene]([ExtResource("1_85hgk"), ExtResource("2_t0pre")])
 spawnTimer = Array[float]([8.0, 10.0])
 lanesToSpawnIn = Array[float]([1.0, 2.0])

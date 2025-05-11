@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dyx12v57pm53j"]
+[gd_scene load_steps=21 format=3 uid="uid://dyx12v57pm53j"]
 
 [ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
 [ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dx8k20bwfblbk" path="res://assets/impactframes/tile045.png" id="9_mmokv"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="13_lbts4"]
 [ext_resource type="AudioStream" uid="uid://bvlc5gcmxy054" path="res://assets/audio/track.wav" id="14_8djf2"]
-[ext_resource type="AudioStream" uid="uid://c57udg14wxpnp" path="res://assets/audio/slap.mp3" id="14_dqefj"]
-[ext_resource type="AudioStream" uid="uid://cff2gjrglluor" path="res://assets/audio/casengleskog.mp3" id="16_dqefj"]
+[ext_resource type="AudioStream" uid="uid://17oq16enc88w" path="res://assets/audio/gun.wav" id="14_dqefj"]
+[ext_resource type="AudioStream" uid="uid://bxettlvchuv1r" path="res://assets/audio/place.wav" id="16_dqefj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5gi"]
 
@@ -52,6 +52,13 @@ animations = [{
 "name": &"default",
 "speed": 40.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqefj"]
+line_spacing = 3.225
+font_size = 26
+font_color = Color(0.598432, 0, 0.225061, 1)
+outline_size = 15
+outline_color = Color(1, 1, 0, 1)
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker", "audio", "gachiSound")]
 script = ExtResource("1_h00vy")
@@ -98,13 +105,17 @@ frame_progress = 1.0
 
 [node name="Label" type="Label" parent="Area2D"]
 visible = false
-offset_left = -39.0
-offset_top = -24.0
-offset_right = 1.0
-offset_bottom = 25.0
+offset_left = -52.0
+offset_top = -30.0
+offset_right = -12.0
+offset_bottom = 45.0
 rotation = -0.541052
+theme_override_colors/font_color = Color(0.552962, 1.35969e-06, 4.81307e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
 text = "20
 "
+label_settings = SubResource("LabelSettings_dqefj")
 
 [node name="FirerateTimer" type="Timer" parent="."]
 one_shot = true
@@ -164,7 +175,8 @@ text = "Money:"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_dqefj")
-volume_db = 7.594
+volume_db = -19.729
+pitch_scale = 0.36
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 process_mode = 3

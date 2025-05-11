@@ -36,13 +36,20 @@ public partial class EnemySpawner : Node2D
                 spawnTemplates[currentWave].lanesToSpawnIn[1]);
 
         GD.Print("lane count: " + numberOfLanesToSpawnIn);
+        Godot.Collections.Array<int> avalibeSpawnPositions =
+        [
+            0,
+            1,
+            2,
+            3,
+            4,
+        ];
         for (int i = 0; i < numberOfLanesToSpawnIn; i++)
         {
-            SpawnInLane(
-                GD.RandRange(
-                    0,
-                    spawnPositions.Count - 1),
-                1);
+            int selected = GD.RandRange(0, avalibeSpawnPositions.Count - 1);
+            SpawnInLane(avalibeSpawnPositions[selected], 1);
+            avalibeSpawnPositions.RemoveAt(selected);
+            if (avalibeSpawnPositions.Count <= 0) break;
         }
         SetEnemySpawnTimer();
     }
