@@ -1,18 +1,15 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cmihbyj2b5a73"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cmihbyj2b5a73"]
 
-[ext_resource type="Texture2D" uid="uid://ca5u84xj5qhou" path="res://assets/petada.png" id="2_enqth"]
 [ext_resource type="FontFile" uid="uid://drbeb2a68piwl" path="res://assets/theme/Hey Comic.otf" id="2_ny3hw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny3hw"]
-texture = ExtResource("2_enqth")
-modulate_color = Color(1, 0.505882, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny3hw"]
+bg_color = Color(0.925961, 0.434574, 0.24115, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3pl3"]
-texture = ExtResource("2_enqth")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enqth"]
+bg_color = Color(0.913725, 0.6, 0.6, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enqth"]
-texture = ExtResource("2_enqth")
-modulate_color = Color(1, 0.176471, 0.2, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10c53"]
+bg_color = Color(0.85136, 0.503367, 0.144862, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3pl3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,9 +17,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [resource]
 Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("2_ny3hw")
-Button/styles/hover = SubResource("StyleBoxTexture_ny3hw")
-Button/styles/normal = SubResource("StyleBoxTexture_r3pl3")
-Button/styles/pressed = SubResource("StyleBoxTexture_enqth")
+Button/styles/hover = SubResource("StyleBoxFlat_ny3hw")
+Button/styles/normal = SubResource("StyleBoxFlat_enqth")
+Button/styles/pressed = SubResource("StyleBoxFlat_10c53")
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("2_ny3hw")
 Label/styles/normal = SubResource("StyleBoxFlat_r3pl3")
