@@ -125,7 +125,7 @@ public partial class Player : Node2D
 			towers.Add(tower);
 			GD.Print(towers);
 			cash -= neededMoney;
-			moneyLabel.Text = "Money: " + cash;
+			moneyLabel.Text = cash + "$";
 			gachiSound.Play();
 		}
 	}
