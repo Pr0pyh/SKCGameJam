@@ -94,6 +94,7 @@ turretFireRate = 5.0
 shape = SubResource("RectangleShape2D_ysngq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 scale = Vector2(28, 24)
 mesh = SubResource("BoxMesh_ysngq")
 

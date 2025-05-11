@@ -82,6 +82,7 @@ turretHealth = 200
 shape = SubResource("RectangleShape2D_e1su5")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 scale = Vector2(18, 70)
 mesh = SubResource("BoxMesh_j0qs6")
 
