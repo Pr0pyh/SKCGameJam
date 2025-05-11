@@ -49,6 +49,8 @@ public partial class Player : Node2D
 	GroundChecker groundChecker;
 	[Export]
 	AudioStreamPlayer audio;
+	[Export]
+	AudioStreamPlayer gachiSound;
 	int neededMoney;
 	bool canShoot;
 	float amount;
@@ -58,7 +60,7 @@ public partial class Player : Node2D
 	float fireRate;
 	int shotDamage;
 	float critChance = 10;
-	float critDamage = 1;
+	float critDamage = 1.5f;
 	int cash;
 	float cashRegen;
 	bool slowOnHit;
@@ -71,11 +73,11 @@ public partial class Player : Node2D
 		timer.Timeout += resetShot;
 		moneyTimer.Timeout += addMoney;
 		canShoot = true;
-		shotDamage = 5;
+		shotDamage = 10;
 		towers = new Godot.Collections.Array<Tower>();
-		basicButton.Text = "Basic turret:\n" + "price: 20";
-		shieldButton.Text = "Shield turret:\n" + "price: 10";
-		fastButton.Text = "Fast turret:\n" + "price: 30";
+		basicButton.Text = "Supervizorka:\n" + "price: 20";
+		shieldButton.Text = "Advokat:\n" + "price: 10";
+		fastButton.Text = "Menadzer:\n" + "price: 50";
 	}
 	public override void _Process(double delta)
 	{
@@ -121,6 +123,7 @@ public partial class Player : Node2D
 			GD.Print(towers);
 			cash -= neededMoney;
 			moneyLabel.Text = "Money: " + cash;
+			gachiSound.Play();
 		}
 	}
 	private void cameraUpdate(float delta)
@@ -202,13 +205,13 @@ public partial class Player : Node2D
 	{
 		int chosenDamage;
 		if (GD.RandRange(0, 100) <= critChance)
-			chosenDamage = (int)(shotDamage * (1 + critDamage));
+			chosenDamage = (int)(shotDamage * (critDamage));
 		else
 			chosenDamage = shotDamage;
 		if (pushBackOnHit) enemy.pushBack();
 		if (slowOnHit) enemy.slowDown();
-		showLabel(shotDamage);
-		enemy.damage(shotDamage);
+		showLabel(chosenDamage);
+		enemy.damage(chosenDamage);
 	}
 	public async void showLabel(int shotDamage)
 	{
@@ -231,15 +234,21 @@ public partial class Player : Node2D
 	{
 		chosenTurretScene = BasicTurretScene;
 		neededMoney = neededMoneyBasic;
+		shieldButton.ButtonPressed = false;
+		fastButton.ButtonPressed = false;
 	}
 	public void _on_button_2_pressed()
 	{
 		chosenTurretScene = ShieldTurretScene;
 		neededMoney = neededMoneyShield;
+		basicButton.ButtonPressed = false;
+		fastButton.ButtonPressed = false;
 	}
 	public void _on_button_3_pressed()
 	{
 		chosenTurretScene = FastTurretScene;
 		neededMoney = neededMoneyFast;
+		basicButton.ButtonPressed = false;
+		shieldButton.ButtonPressed = false;
 	}
 }

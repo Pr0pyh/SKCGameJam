@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca5u84xj5qhou"
-path="res://.godot/imported/petada.png-b9b1c226d1901b05720af4b2112fc875.ctex"
+uid="uid://coe0uc4ds1wf6"
+path="res://.godot/imported/supervizor2.png-2e811d7779fac9c3fcfabfc005d707ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/petada.png"
-dest_files=["res://.godot/imported/petada.png-b9b1c226d1901b05720af4b2112fc875.ctex"]
+source_file="res://assets/towers/basic/supervizor2.png"
+dest_files=["res://.godot/imported/supervizor2.png-2e811d7779fac9c3fcfabfc005d707ba.ctex"]
 
 [params]
 

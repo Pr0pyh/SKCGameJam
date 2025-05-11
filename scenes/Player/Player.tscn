@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dyx12v57pm53j"]
+[gd_scene load_steps=20 format=3 uid="uid://dyx12v57pm53j"]
 
 [ext_resource type="Script" uid="uid://k4nnw2imhpma" path="res://scenes/Player/Player.cs" id="1_h00vy"]
 [ext_resource type="Texture2D" uid="uid://tve6kmm24udt" path="res://assets/impactframes/tile001.png" id="2_puxyr"]
@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://deiyrdglhp4j5" path="res://assets/impactframes/tile018.png" id="7_cd157"]
 [ext_resource type="Texture2D" uid="uid://bv2l5cnfqut0l" path="res://assets/impactframes/tile025.png" id="8_8djf2"]
 [ext_resource type="Texture2D" uid="uid://dx8k20bwfblbk" path="res://assets/impactframes/tile045.png" id="9_mmokv"]
-[ext_resource type="AudioStream" uid="uid://17oq16enc88w" path="res://assets/audio/91572__steveygos93__layeredgunshot.wav" id="13_cd157"]
+[ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="13_lbts4"]
 [ext_resource type="AudioStream" uid="uid://bvlc5gcmxy054" path="res://assets/audio/track.wav" id="14_8djf2"]
+[ext_resource type="AudioStream" uid="uid://c57udg14wxpnp" path="res://assets/audio/slap.mp3" id="14_dqefj"]
+[ext_resource type="AudioStream" uid="uid://cff2gjrglluor" path="res://assets/audio/casengleskog.mp3" id="16_dqefj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5gi"]
 
@@ -51,7 +53,7 @@ animations = [{
 "speed": 40.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker", "audio")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("shootArea", "spriteImpact", "timer", "moneyTimer", "moneyLabel", "damageLabel", "basicButton", "shieldButton", "fastButton", "groundChecker", "audio", "gachiSound")]
 script = ExtResource("1_h00vy")
 shootArea = NodePath("Area2D")
 spriteImpact = NodePath("Area2D/AnimatedSprite2D")
@@ -68,6 +70,7 @@ ShieldTurretScene = ExtResource("3_qt7jd")
 neededMoneyShield = 10
 groundChecker = NodePath("GroundChecker")
 audio = NodePath("AudioStreamPlayer")
+gachiSound = NodePath("AudioStreamPlayer3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -120,6 +123,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("13_lbts4")
 
 [node name="Button" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -127,6 +131,7 @@ offset_left = 314.0
 offset_top = 11.0
 offset_right = 406.0
 offset_bottom = 109.0
+toggle_mode = true
 text = "basic"
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control"]
@@ -135,6 +140,7 @@ offset_left = 539.0
 offset_top = 12.0
 offset_right = 631.0
 offset_bottom = 110.0
+toggle_mode = true
 text = "shield
 "
 
@@ -144,6 +150,7 @@ offset_left = 748.0
 offset_top = 12.0
 offset_right = 840.0
 offset_bottom = 110.0
+toggle_mode = true
 text = "fast tower
 "
 
@@ -156,13 +163,18 @@ offset_bottom = 73.0
 text = "Money:"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_cd157")
-volume_db = -15.829
+stream = ExtResource("14_dqefj")
+volume_db = 7.594
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("14_8djf2")
 volume_db = -10.286
 autoplay = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_dqefj")
+volume_db = -5.622
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_button_2_pressed"]

@@ -1,14 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://drwqlt3fdp3d"]
+[gd_scene load_steps=12 format=3 uid="uid://drwqlt3fdp3d"]
 
 [ext_resource type="Script" uid="uid://bxuufqorsaptb" path="res://scenes/Towers/ShieldTower/ShieldTower.cs" id="1_j0qs6"]
+[ext_resource type="Texture2D" uid="uid://bmdnnoqcs3l3" path="res://assets/towers/shield/advokat.png" id="2_khmk0"]
+[ext_resource type="Texture2D" uid="uid://yqgxgpwesjs1" path="res://assets/towers/shield/advokatpovredjen.png" id="3_ydvic"]
+[ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="4_ydvic"]
+[ext_resource type="AudioStream" uid="uid://buv4ec6f0t2h5" path="res://assets/audio/gachi.ogg" id="5_8svo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1su5"]
 size = Vector2(80, 80)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j0qs6"]
 
-[node name="ShieldTower" type="StaticBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0qs6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khmk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydvic")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khmk0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ydvic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_khmk0"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.00980716, 0.0208402, 0.0318733, 0.046584, 0.0625207, 0.0711019, 0.0809091, 0.0919421, 0.102975, 0.117686, 0.133623, 0.150785, 0.160592, 0.171625, 0.182658, 0.197369, 0.213306, 0.229242, 0.23905, 0.250083, 0.261116, 0.275826, 0.291763, 0.316281, 0.326088, 0.337121, 0.348154, 0.362865, 0.378802, 0.400868, 0.410675, 0.421708, 0.432741, 0.447452, 0.463388, 0.475647, 0.485454, 0.496488, 0.507521, 0.522231, 0.538168),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2), Vector2(1, -3), Vector2(-4, -1), Vector2(6, -5), Vector2(-3, -5), Vector2(-6, 1), Vector2(6, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8svo7"]
+_data = {
+&"RESET": SubResource("Animation_ydvic"),
+&"shake": SubResource("Animation_khmk0")
+}
+
+[node name="ShieldTower" type="StaticBody2D" node_paths=PackedStringArray("progressBar", "animPlayer", "sprite", "audioPlayer")]
 script = ExtResource("1_j0qs6")
+progressBar = NodePath("ProgressBar")
+animPlayer = NodePath("AnimationPlayer")
+sprite = NodePath("AnimatedSprite2D")
+audioPlayer = NodePath("AudioStreamPlayer")
+turretHealth = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e1su5")
@@ -16,3 +84,27 @@ shape = SubResource("RectangleShape2D_e1su5")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(18, 70)
 mesh = SubResource("BoxMesh_j0qs6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+sprite_frames = SubResource("SpriteFrames_j0qs6")
+animation = &"walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8svo7")
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -51.0
+offset_top = -59.0
+offset_right = 151.0
+offset_bottom = -32.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_ydvic")
+value = 100.0
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8svo7")
+volume_db = -15.928

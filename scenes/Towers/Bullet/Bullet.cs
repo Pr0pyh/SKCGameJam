@@ -4,6 +4,7 @@ using System;
 public partial class Bullet : Area2D
 {
 	public int turretDamage;
+	public int turretCritChance;
 	[Export]
 	public float speed;
 	public override void _Ready()

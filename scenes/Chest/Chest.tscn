@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://vrgt48y3uybr"]
+[gd_scene load_steps=29 format=3 uid="uid://vrgt48y3uybr"]
 
 [ext_resource type="Script" uid="uid://cav52w4jln85b" path="res://scenes/Chest/Chest.cs" id="1_ynxvs"]
 [ext_resource type="Texture2D" uid="uid://bh6krdvx2fbul" path="res://assets/upgradeIcons/kafa.png" id="2_dbka4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dohr2xkyk6vah" path="res://assets/upgradeIcons/cek.png" id="7_m77y3"]
 [ext_resource type="Texture2D" uid="uid://b74k2t8d4b6gt" path="res://assets/upgradeIcons/diploma.png" id="8_ujwlx"]
 [ext_resource type="Texture2D" uid="uid://diotyvkqrdx1k" path="res://assets/upgradeIcons/sat.png" id="10_17g1l"]
+[ext_resource type="Texture2D" uid="uid://qb4gn6lqeags" path="res://assets/chest.png" id="13_4uw13"]
+[ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="13_17g1l"]
 [ext_resource type="AudioStream" uid="uid://by5hqasd0mive" path="res://assets/audio/266566__gowlermusic__gong-hit.wav" id="14_ujwlx"]
 
 [sub_resource type="Resource" id="Resource_ewlxh"]
@@ -217,8 +219,13 @@ commonResources = Array[Resource]([SubResource("Resource_ewlxh"), SubResource("R
 shape = SubResource("RectangleShape2D_11upt")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 scale = Vector2(50, 52)
 mesh = SubResource("BoxMesh_11upt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.168, 0.252)
+texture = ExtResource("13_4uw13")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -231,6 +238,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("13_17g1l")
 
 [node name="FirstItem" type="Button" parent="CanvasLayer/UpgradeMenu"]
 layout_mode = 0
@@ -272,6 +280,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_hmwuc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("14_ujwlx")
 volume_db = -5.53
 autoplay = true

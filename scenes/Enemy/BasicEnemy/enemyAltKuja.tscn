@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ci1giyajllmvw"]
+[gd_scene load_steps=15 format=3 uid="uid://ci1giyajllmvw"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_nf35q"]
 [ext_resource type="Texture2D" uid="uid://b1yxyv2onoyoo" path="res://assets/enemies/protesrZena/aktivista3.3.png" id="2_x2wkl"]
 [ext_resource type="Texture2D" uid="uid://cob42s0fifmqv" path="res://assets/enemies/protesrZena/aktivista3.1.png" id="3_6lafd"]
 [ext_resource type="Texture2D" uid="uid://tcb045q6bnja" path="res://assets/enemies/protesrZena/aktivista3.2.png" id="4_vvyqx"]
 [ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_dlvvp"]
+[ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="6_x2wkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -102,7 +103,7 @@ _data = {
 &"Shake": SubResource("Animation_6juel")
 }
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer", "progressBar")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_nf35q")
@@ -112,6 +113,7 @@ damageRate = 1.0
 health = 40
 sprite = NodePath("AnimatedSprite2D")
 animationPlayer = NodePath("AnimationPlayer")
+progressBar = NodePath("ProgressBar")
 metadata/_edit_vertical_guides_ = [-259.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -156,3 +158,13 @@ color_ramp = SubResource("Gradient_laybh")
 libraries = {
 &"": SubResource("AnimationLibrary_5dcmg")
 }
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -37.0
+offset_right = 27.0
+offset_bottom = -21.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_x2wkl")
+value = 100.0
+show_percentage = false

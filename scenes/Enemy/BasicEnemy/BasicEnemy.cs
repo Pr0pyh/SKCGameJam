@@ -21,10 +21,13 @@ public partial class BasicEnemy : Enemy
 	public AnimatedSprite2D sprite;
 	[Export]
 	public AnimationPlayer animationPlayer;
+	[Export]
+	public ProgressBar progressBar;
 	public override void _Ready()
 	{
 		area.BodyEntered += bodyEntered;
 		animationPlayer.AnimationFinished += changeToWalk;
+		progressBar.MaxValue = health;
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -40,6 +43,7 @@ public partial class BasicEnemy : Enemy
 			die();
 		sprite.Play("hurt");
 		animationPlayer.Play("Shake");
+		progressBar.Value = health;
 	}
 	public override void pushBack()
 	{

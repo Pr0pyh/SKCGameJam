@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkjpeejfxdpxd"]
+[gd_scene load_steps=15 format=3 uid="uid://dkjpeejfxdpxd"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_43cop"]
 [ext_resource type="Texture2D" uid="uid://cvgu70wlffjt" path="res://assets/enemies/Karleusa/ljubavnica3.png" id="2_cjrqj"]
 [ext_resource type="Texture2D" uid="uid://dy8y2xuu3o406" path="res://assets/enemies/Karleusa/ljubavnica1.png" id="3_3vo7g"]
 [ext_resource type="Texture2D" uid="uid://bpc0llcco6jmf" path="res://assets/enemies/Karleusa/ljubavnica2.png" id="4_extw4"]
 [ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_t2awu"]
+[ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="6_cjrqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -102,7 +103,7 @@ _data = {
 &"Shake": SubResource("Animation_6juel")
 }
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer", "progressBar")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_43cop")
@@ -112,6 +113,7 @@ damageRate = 2.0
 health = 200
 sprite = NodePath("AnimatedSprite2D")
 animationPlayer = NodePath("AnimationPlayer")
+progressBar = NodePath("ProgressBar")
 metadata/_edit_vertical_guides_ = [-259.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -156,3 +158,13 @@ color_ramp = SubResource("Gradient_laybh")
 libraries = {
 &"": SubResource("AnimationLibrary_5dcmg")
 }
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -18.961
+offset_top = -37.1429
+offset_right = 66.039
+offset_bottom = -21.1429
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_cjrqj")
+value = 100.0
+show_percentage = false

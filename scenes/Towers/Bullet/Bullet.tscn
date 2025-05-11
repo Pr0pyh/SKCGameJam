@@ -1,11 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://w8flxvi6uog2"]
+[gd_scene load_steps=8 format=3 uid="uid://w8flxvi6uog2"]
 
 [ext_resource type="Script" uid="uid://cmhqvksabw460" path="res://scenes/Towers/Bullet/Bullet.cs" id="1_xnode"]
+[ext_resource type="Texture2D" uid="uid://clebyf80yhs5s" path="res://assets/diploma.png" id="2_o77d7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfk84"]
 size = Vector2(48, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jfk84"]
+
+[sub_resource type="Animation" id="Animation_rvcem"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.57162]
+}
+
+[sub_resource type="Animation" id="Animation_o77d7"]
+resource_name = "round"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3q3l2"]
+_data = {
+&"RESET": SubResource("Animation_rvcem"),
+&"round": SubResource("Animation_o77d7")
+}
 
 [node name="Bullet" type="Area2D"]
 collision_mask = 3
@@ -17,6 +55,19 @@ position = Vector2(14, 0)
 shape = SubResource("RectangleShape2D_jfk84")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 position = Vector2(13.75, 0.5)
 scale = Vector2(28.5, 13)
 mesh = SubResource("BoxMesh_jfk84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12.5948, 0.000487685)
+rotation = 1.57162
+scale = Vector2(0.044, 0.0816204)
+texture = ExtResource("2_o77d7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3q3l2")
+}
+autoplay = "round"
