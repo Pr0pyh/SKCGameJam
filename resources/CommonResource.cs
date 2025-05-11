@@ -20,7 +20,7 @@ public partial class CommonResource : Resource
 	[Export]
 	public int turretHealth;
 	[Export]
-	public int turretFireRate;
+	public float turretFireRate;
 	[Export]
 	public int cashRegen;
 	[Export]

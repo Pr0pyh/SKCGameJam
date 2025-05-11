@@ -50,7 +50,7 @@ public partial class BasicEnemy : Enemy
 	}
 	public override void pushBack()
 	{
-		Position += new Vector2(70.0f, 0.0f);
+		Position += new Vector2(40.0f, 0.0f);
 	}
 	public override async void slowDown()
 	{
