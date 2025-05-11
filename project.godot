@@ -15,6 +15,11 @@ run/main_scene="uid://bpdrxn75f3fg8"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="SKCGameJam"
