@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vvfi1wlr4ph6"]
+[gd_scene load_steps=14 format=3 uid="uid://vvfi1wlr4ph6"]
 
 [ext_resource type="PackedScene" uid="uid://dyx12v57pm53j" path="res://scenes/Player/Player.tscn" id="1_6rd1t"]
 [ext_resource type="Script" uid="uid://c2sh8kavit2xq" path="res://scenes/World/World.cs" id="1_mbmvx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://blwjb04iby13b" path="res://scenes/EnemySpawner/EnemySpawner.tscn" id="7_kurpr"]
 [ext_resource type="Script" uid="uid://byonndnfg64k0" path="res://scenes/World/killArea.cs" id="7_p47ta"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="9_ictkp"]
+[ext_resource type="Texture2D" uid="uid://q4ypdekhpmf2" path="res://assets/End_screen.png" id="11_dvfe2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgio"]
 size = Vector2(695, 395)
@@ -92,6 +93,7 @@ scale = Vector2(4.845, 4.845)
 shape = SubResource("RectangleShape2D_ictkp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Area2D"]
+layer = 2
 
 [node name="Control" type="Control" parent="Area2D/CanvasLayer"]
 visible = false
@@ -102,12 +104,22 @@ offset_top = 243.0
 offset_right = 533.0
 offset_bottom = 378.0
 
+[node name="TextureRect" type="TextureRect" parent="Area2D/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -260.0
+offset_top = -305.0
+offset_right = 892.0
+offset_bottom = 343.0
+texture = ExtResource("11_dvfe2")
+
 [node name="Button" type="Button" parent="Area2D/CanvasLayer/Control"]
 layout_mode = 2
-offset_left = 268.0
-offset_top = 50.0
-offset_right = 420.0
-offset_bottom = 175.0
+offset_left = 125.0
+offset_top = 261.0
+offset_right = 570.0
+offset_bottom = 347.0
 text = "RESTART"
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="Area2D/CanvasLayer/Control/Button" to="Area2D" method="_on_button_pressed"]

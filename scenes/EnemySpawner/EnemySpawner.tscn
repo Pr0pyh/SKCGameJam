@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://blwjb04iby13b"]
+[gd_scene load_steps=37 format=3 uid="uid://blwjb04iby13b"]
 
 [ext_resource type="Script" uid="uid://bj8fqnesdtixf" path="res://scenes/EnemySpawner/EnemySpawner.cs" id="1_hs4cw"]
 [ext_resource type="Resource" uid="uid://btiqlp45kk5ak" path="res://resources/spawnTemplates/wave0.tres" id="2_hs4cw"]
@@ -35,6 +35,7 @@
 [ext_resource type="Resource" uid="uid://btw31831kb0qm" path="res://resources/spawnTemplates/wave29.tres" id="31_61gkd"]
 [ext_resource type="Resource" uid="uid://by3xdohvxgecl" path="res://resources/spawnTemplates/wave30.tres" id="32_jftld"]
 [ext_resource type="Resource" uid="uid://brxj0p7h24d00" path="res://resources/spawnTemplates/wave31.tres" id="33_co1o4"]
+[ext_resource type="Texture2D" uid="uid://bvb5ondsnefes" path="res://assets/tittle.png" id="36_iouqm"]
 
 [node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnPositions", "waveTimer", "enemySpawnTimer")]
 script = ExtResource("1_hs4cw")
@@ -88,3 +89,33 @@ position = Vector2(-1, 368)
 modulate = Color(1, 1, 1, 0.0705882)
 scale = Vector2(0.457, 0.457)
 texture = ExtResource("4_hhao0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 243.0
+offset_top = 243.0
+offset_right = 533.0
+offset_bottom = 378.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -260.0
+offset_top = -305.0
+offset_right = 892.0
+offset_bottom = 343.0
+texture = ExtResource("36_iouqm")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 125.0
+offset_top = 261.0
+offset_right = 570.0
+offset_bottom = 347.0
+text = "YOU WIN!!"
+icon_alignment = 1
+expand_icon = true
