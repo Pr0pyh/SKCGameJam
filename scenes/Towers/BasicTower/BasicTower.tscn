@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbl8k1p5a6bni"]
+[gd_scene load_steps=15 format=3 uid="uid://cbl8k1p5a6bni"]
 
 [ext_resource type="Script" uid="uid://d1g1x7u62154k" path="res://scenes/Towers/BasicTower/BasicTower.cs" id="1_oll1t"]
 [ext_resource type="PackedScene" uid="uid://w8flxvi6uog2" path="res://scenes/Towers/Bullet/Bullet.tscn" id="2_at46i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://coe0uc4ds1wf6" path="res://assets/towers/basic/supervizor2.png" id="5_m3mry"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="5_uy17v"]
 [ext_resource type="AudioStream" uid="uid://buv4ec6f0t2h5" path="res://assets/audio/gachi.ogg" id="6_m3mry"]
+[ext_resource type="AudioStream" uid="uid://cklxcki1vsuyg" path="res://assets/audio/turret_shoot.mp3" id="8_uy17v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysngq"]
 size = Vector2(80, 80)
@@ -75,7 +76,7 @@ _data = {
 &"shake": SubResource("Animation_khmk0")
 }
 
-[node name="BasicTower" type="StaticBody2D" node_paths=PackedStringArray("timer", "progressBar", "animPlayer", "sprite", "audioPlayer")]
+[node name="BasicTower" type="StaticBody2D" node_paths=PackedStringArray("timer", "progressBar", "animPlayer", "sprite", "audioPlayer", "shootAudio")]
 script = ExtResource("1_oll1t")
 bulletScene = ExtResource("2_at46i")
 timer = NodePath("Timer")
@@ -83,6 +84,7 @@ progressBar = NodePath("ProgressBar")
 animPlayer = NodePath("AnimationPlayer")
 sprite = NodePath("AnimatedSprite2D")
 audioPlayer = NodePath("AudioStreamPlayer")
+shootAudio = NodePath("AudioStreamPlayer2")
 turretDamage = 20
 turretCritChance = 10
 turretHealth = 100
@@ -122,4 +124,8 @@ show_percentage = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_m3mry")
+volume_db = -15.928
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uy17v")
 volume_db = -15.928

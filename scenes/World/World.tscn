@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://vvfi1wlr4ph6"]
+[gd_scene load_steps=13 format=3 uid="uid://vvfi1wlr4ph6"]
 
 [ext_resource type="PackedScene" uid="uid://dyx12v57pm53j" path="res://scenes/Player/Player.tscn" id="1_6rd1t"]
 [ext_resource type="Script" uid="uid://c2sh8kavit2xq" path="res://scenes/World/World.cs" id="1_mbmvx"]
 [ext_resource type="Texture2D" uid="uid://pem4r5i34j6q" path="res://assets/background.jpeg" id="2_fngvn"]
 [ext_resource type="Texture2D" uid="uid://pgmm2a7v8ill" path="res://assets/sef.png" id="3_p47ta"]
+[ext_resource type="Texture2D" uid="uid://py20nrnalnst" path="res://assets/tutorial.png" id="4_evp4r"]
 [ext_resource type="PackedScene" uid="uid://b6j7wuqul7j78" path="res://scenes/Towers/FastTower/FastTower.tscn" id="4_kurpr"]
 [ext_resource type="Script" uid="uid://dqh6dfhqcdu2q" path="res://scenes/GroundChecker/Ground/Ground.cs" id="6_hkgio"]
 [ext_resource type="PackedScene" uid="uid://blwjb04iby13b" path="res://scenes/EnemySpawner/EnemySpawner.tscn" id="7_kurpr"]
@@ -29,6 +30,11 @@ position = Vector2(90, 343)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_p47ta")
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(101, 562)
+scale = Vector2(1.05521, 1.08725)
+texture = ExtResource("4_evp4r")
+
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_6rd1t")]
 position = Vector2(263, 185)
 camera = NodePath("../Camera2D")
@@ -49,6 +55,7 @@ shape = SubResource("RectangleShape2D_hkgio")
 position = Vector2(1008, 232)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 7.0
 offset_top = 526.0
 offset_right = 227.0
@@ -57,6 +64,7 @@ theme = ExtResource("9_ictkp")
 text = "Mouse 1 - Shoot"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 560.0
 offset_right = 229.0
@@ -65,6 +73,7 @@ theme = ExtResource("9_ictkp")
 text = "Mouse 2 - Place"
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 598.0
 offset_right = 229.0
@@ -72,11 +81,10 @@ offset_bottom = 629.0
 theme = ExtResource("9_ictkp")
 text = "Escape - Exit"
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("nodeToEnableOnDie")]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(243, 243)
 collision_mask = 2
 script = ExtResource("7_p47ta")
-nodeToEnableOnDie = NodePath("CanvasLayer/Control")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-204, 107)

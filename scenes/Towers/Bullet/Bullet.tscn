@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://w8flxvi6uog2"]
+[gd_scene load_steps=9 format=3 uid="uid://w8flxvi6uog2"]
 
 [ext_resource type="Script" uid="uid://cmhqvksabw460" path="res://scenes/Towers/Bullet/Bullet.cs" id="1_xnode"]
 [ext_resource type="Texture2D" uid="uid://clebyf80yhs5s" path="res://assets/diploma.png" id="2_o77d7"]
+[ext_resource type="AudioStream" uid="uid://kc27joc8rgtk" path="res://assets/audio/turret_impact.mp3" id="3_rvcem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfk84"]
 size = Vector2(48, 20)
@@ -45,10 +46,11 @@ _data = {
 &"round": SubResource("Animation_o77d7")
 }
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("audioPlayer")]
 collision_mask = 3
 script = ExtResource("1_xnode")
 speed = 250.0
+audioPlayer = NodePath("AudioStreamPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, 0)
@@ -72,3 +74,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_3q3l2")
 }
 autoplay = "round"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rvcem")

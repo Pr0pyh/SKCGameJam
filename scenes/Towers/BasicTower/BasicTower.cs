@@ -17,6 +17,8 @@ public partial class BasicTower : Tower
     AnimatedSprite2D sprite;
     [Export]
     AudioStreamPlayer audioPlayer;
+	[Export]
+    AudioStreamPlayer shootAudio;
     public override void _Ready()
     {
 		// turretDamage = 10;
@@ -37,6 +39,7 @@ public partial class BasicTower : Tower
 		GetParent().AddChild(bullet);
 		bullet.GlobalPosition = new Vector2(GlobalPosition.X + 10.0f, GlobalPosition.Y);
 		bullet.turretDamage = turretDamage;
+		shootAudio.Play();
 		timer.Start();
 	}
     public override void damage(int amount)

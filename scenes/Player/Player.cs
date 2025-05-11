@@ -75,9 +75,12 @@ public partial class Player : Node2D
 		canShoot = true;
 		shotDamage = 10;
 		towers = new Godot.Collections.Array<Tower>();
-		basicButton.Text = "Supervizorka:\n" + "price: 20";
-		shieldButton.Text = "Advokat:\n" + "price: 10";
-		fastButton.Text = "Menadzer:\n" + "price: 50";
+		// basicButton.Text = "Supervizorka:\n" + "price: 20";
+		// shieldButton.Text = "Advokat:\n" + "price: 10";
+		// fastButton.Text = "Menadzer:\n" + "price: 50";
+		basicButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		shieldButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		fastButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
 	}
 	public override void _Process(double delta)
 	{
@@ -125,6 +128,11 @@ public partial class Player : Node2D
 			moneyLabel.Text = "Money: " + cash;
 			gachiSound.Play();
 		}
+	}
+	public void exitInput()
+	{
+		if(Input.IsActionJustPressed("exit"))
+			GetTree().Quit();
 	}
 	private void cameraUpdate(float delta)
 	{
@@ -228,7 +236,7 @@ public partial class Player : Node2D
 	public void addMoney()
 	{
 		cash += 10;
-		moneyLabel.Text = "Money: " + cash;
+		moneyLabel.Text = cash + " $";
 	}
 	public void _on_button_pressed()
 	{
@@ -236,6 +244,9 @@ public partial class Player : Node2D
 		neededMoney = neededMoneyBasic;
 		shieldButton.ButtonPressed = false;
 		fastButton.ButtonPressed = false;
+		basicButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.5f);
+		shieldButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		fastButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
 	}
 	public void _on_button_2_pressed()
 	{
@@ -243,6 +254,9 @@ public partial class Player : Node2D
 		neededMoney = neededMoneyShield;
 		basicButton.ButtonPressed = false;
 		fastButton.ButtonPressed = false;
+		basicButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		shieldButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.5f);
+		fastButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
 	}
 	public void _on_button_3_pressed()
 	{
@@ -250,5 +264,8 @@ public partial class Player : Node2D
 		neededMoney = neededMoneyFast;
 		basicButton.ButtonPressed = false;
 		shieldButton.ButtonPressed = false;
+		basicButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		shieldButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.0f);
+		fastButton.Modulate = new Color(basicButton.Modulate.R, basicButton.Modulate.G, basicButton.Modulate.B, 0.5f);
 	}
 }

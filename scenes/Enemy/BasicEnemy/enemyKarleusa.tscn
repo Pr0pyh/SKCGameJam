@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkjpeejfxdpxd"]
+[gd_scene load_steps=16 format=3 uid="uid://dkjpeejfxdpxd"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_43cop"]
 [ext_resource type="Texture2D" uid="uid://cvgu70wlffjt" path="res://assets/enemies/Karleusa/ljubavnica3.png" id="2_cjrqj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpc0llcco6jmf" path="res://assets/enemies/Karleusa/ljubavnica2.png" id="4_extw4"]
 [ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_t2awu"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="6_cjrqj"]
+[ext_resource type="AudioStream" uid="uid://8tmu5nq6cqo5" path="res://assets/audio/hitEnemy.wav" id="7_3vo7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -103,7 +104,7 @@ _data = {
 &"Shake": SubResource("Animation_6juel")
 }
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer", "progressBar")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "audioHit", "sprite", "animationPlayer", "progressBar")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_43cop")
@@ -111,6 +112,7 @@ speed = 50
 area = NodePath("DamageArea")
 damageRate = 2.0
 health = 200
+audioHit = NodePath("HitEnemy")
 sprite = NodePath("AnimatedSprite2D")
 animationPlayer = NodePath("AnimationPlayer")
 progressBar = NodePath("ProgressBar")
@@ -168,3 +170,6 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_cjrqj")
 value = 100.0
 show_percentage = false
+
+[node name="HitEnemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3vo7g")

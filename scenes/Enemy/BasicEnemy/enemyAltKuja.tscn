@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci1giyajllmvw"]
+[gd_scene load_steps=16 format=3 uid="uid://ci1giyajllmvw"]
 
 [ext_resource type="Script" uid="uid://bjt7rixi0wuh6" path="res://scenes/Enemy/BasicEnemy/BasicEnemy.cs" id="1_nf35q"]
 [ext_resource type="Texture2D" uid="uid://b1yxyv2onoyoo" path="res://assets/enemies/protesrZena/aktivista3.3.png" id="2_x2wkl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tcb045q6bnja" path="res://assets/enemies/protesrZena/aktivista3.2.png" id="4_vvyqx"]
 [ext_resource type="Texture2D" uid="uid://8lbdkot374jg" path="res://assets/pare/10.png" id="5_dlvvp"]
 [ext_resource type="Theme" uid="uid://cmihbyj2b5a73" path="res://assets/theme/theme.tres" id="6_x2wkl"]
+[ext_resource type="AudioStream" uid="uid://8tmu5nq6cqo5" path="res://assets/audio/hitEnemy.wav" id="7_6lafd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16bvb"]
 
@@ -103,7 +104,7 @@ _data = {
 &"Shake": SubResource("Animation_6juel")
 }
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "sprite", "animationPlayer", "progressBar")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("area", "audioHit", "sprite", "animationPlayer", "progressBar")]
 scale = Vector2(3.85, 3.85)
 collision_layer = 2
 script = ExtResource("1_nf35q")
@@ -111,6 +112,7 @@ speed = 80
 area = NodePath("DamageArea")
 damageRate = 1.0
 health = 40
+audioHit = NodePath("HitEnemy")
 sprite = NodePath("AnimatedSprite2D")
 animationPlayer = NodePath("AnimationPlayer")
 progressBar = NodePath("ProgressBar")
@@ -120,6 +122,7 @@ metadata/_edit_vertical_guides_ = [-259.0]
 shape = SubResource("RectangleShape2D_16bvb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-0.715, -0.915)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_6nlsp")
@@ -168,3 +171,6 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_x2wkl")
 value = 100.0
 show_percentage = false
+
+[node name="HitEnemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6lafd")
